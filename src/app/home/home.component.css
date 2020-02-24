@@ -1,0 +1,21 @@
+.background_image {
+    height: 102.5rem;
+  
+   
+}
+
+html{
+    margin: -10px;
+    background: url('../../assets/main_background.jpg') no-repeat;
+    /* background-size: cover; */
+    background-attachment: fixed;
+    background-size: 100%;
+}
+h1 {
+    position: fixed;
+    font-family: sans-serif;
+    margin: 3rem;
+    font-size: 2.5rem;
+    font-weight: lighter;
+    color: white;
+}
