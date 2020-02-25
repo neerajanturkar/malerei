@@ -1,0 +1,17 @@
+.footer-main{
+    background-color: black;
+    height: 3rem;
+    color: white;
+    opacity: 0.5;
+}
+.fa {
+    color: white;
+    font-size: 20px;
+    width: 50px;
+    margin-top: 15px; 
+    text-align: center;
+    text-decoration: none;
+    
+   
+  }
+  
