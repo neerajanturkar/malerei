@@ -1,0 +1,46 @@
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { Event } from '../../model/event.model';
+import { ActivatedRoute, ParamMap } from "@angular/router";
+import { mimeType } from "./mime-type.validator";
+
+import { EventsService } from '../../services/events.service';
+
+@Component({
+  selector: 'app-create-event',
+  templateUrl: './create-event.component.html',
+  styleUrls: ['./create-event.component.css']
+})
+export class CreateEventComponent implements OnInit {
+  name:"";
+  from:Date;
+  to:Date;
+  time:"";
+  location:"";
+  event: Event;
+  isLoading = false;
+  form: FormGroup;
+  image_url:string;
+  private mode = "create";
+  private eventId: string;
+
+  constructor(public eventService: EventsService,
+    public route: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.form = new FormGroup({
+      name: new FormControl(null, {
+        validators: [Validators.required, Validators.minLength(3)]
+      }),
+      location: new FormControl(null, { validators: [Validators.required] }),
+      time: new FormControl(null, { validators: [Validators.required] }),
+      from: new FormControl(null, { validators: [Validators.required] }),
+      to: new FormControl(null, { validators: [Validators.required] }),
+      image: new FormControl(null, {
+        validators: [Validators.required],
+        asyncValidators: [mimeType]
+      })
+    });
+  }
+
+}
