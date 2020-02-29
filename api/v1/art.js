@@ -41,15 +41,19 @@ function createArt(req, res, next) {
 function addBid(req, res, next) {
     if(req.params.id !== undefined) {
         Art.findOne({_id:req.params.id}, (err, art) => {
-            if(req.body.bid !== undefined || req.body.user_id) {
+        if(req.body.bid !== undefined || req.body.user_id) {
+            if(art.curr_bid < req.body.bid) {
                 art.bids.push({amount:req.body.bid, user_id:req.body.user_id});
                 art.save((err,art) => {
                     res.json({"success": true, "art": art , "message" : "Bid added successfully"});
                 });
             } else {
-                res.json({"success":false, "message":"Missing Bid price" });        
+                res.json({"success":false, "message":"Bid price cannot be less than current bid price" });            
             }
-        });
+        } else {
+            res.json({"success":false, "message":"Missing Bid price" });        
+        }
+    });
     } else {
         res.json({"success":false, "message":"Missing Art Id" });
     }

@@ -1,0 +1,73 @@
+<html>
+  <body>
+
+    <app-header></app-header>
+    <div class="search_box">
+       <div class="search">         
+             <input placeholder="Search by Artist or Location" type="text"/>       
+       </div>
+       <div class="art_type_filter">
+            <label style="color: black;">
+              <input type="checkbox"/>
+              <span style="margin-right: 2rem;">Oil</span>
+            </label>
+            <label style="color: black;">
+              <input type="checkbox"/>
+              <span style="margin-right: 2rem;">Watercolor</span>
+            </label>
+            <label style="color: black;">
+              <input type="checkbox" />
+              <span style="margin-right: 2rem;">Pastel</span>
+            </label>
+            <label style="color: black;">
+              <input type="checkbox"/>
+              <span style="margin-right: 2rem;">Acrylic</span>
+            </label>
+            <label style="color: black;">
+              <input type="checkbox"/>
+              <span style="margin-right: 2rem;">Spray</span>
+            </label>
+            <label style="color: black;">
+              <input type="checkbox"/>
+              <span style="margin-right: 2rem;">Ink Wash</span>
+            </label>
+           
+         </div>
+    </div>
+    <div class="gallery" >
+      
+
+        <div class="row">
+          
+          <gallery-card 
+            [title]="title"
+            [artist]="artist"
+            [current_bid]="current_bid"
+            [expiry]="expiry" 
+            [detail]="detail" 
+            [description]="description" 
+            [image]="image">
+          </gallery-card>
+          <gallery-card 
+            [title]="title"
+            [artist]="artist"
+            [current_bid]="current_bid"
+            [expiry]="expiry" 
+            [detail]="detail" 
+            [description]="description" 
+            [image]="image1">
+          </gallery-card>
+          
+          
+          
+          <gallery-card [title]="title" [detail]="detail" [description]="description" [image]="image1"></gallery-card>
+          <gallery-card [title]="title" [detail]="detail" [description]="description" [image]="image"></gallery-card>
+          <gallery-card [title]="title" [detail]="detail" [description]="description" [image]="image"></gallery-card>
+          <gallery-card [title]="title" [detail]="detail" [description]="description" [image]="image1"></gallery-card>
+          <gallery-card [title]="title" [detail]="detail" [description]="description" [image]="image"></gallery-card>
+          <a href="/createPainting" class="btn-floating btn-large waves-effect waves-light white" style="position: fixed;bottom: 3rem;"><i class="material-icons" style="color:#ffab40">add</i></a>
+        </div>
+      </div>
+      <app-footer></app-footer>
+  </body>
+  </html>

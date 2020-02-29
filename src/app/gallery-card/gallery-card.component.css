@@ -1,0 +1,21 @@
+table{
+    width: 60%;
+    border-collapse: initial;
+}
+td {
+    padding: 5px 5px;
+}
+.card-content-label-black{
+    color: black;
+}
+.card-content-label-grey{
+    color: grey;
+}
+.card-title{
+    padding-left: 1.5%;
+}
+.card-subtitle{
+    font-size: 20px;
+    padding-left: 1.5%;
+    font-weight: 300;
+}
