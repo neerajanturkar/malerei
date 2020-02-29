@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { Event } from '../../model/event.model';
+import { Exhibition} from '../../model/event.model';
 import { ActivatedRoute, ParamMap } from "@angular/router";
 import { mimeType } from "./mime-type.validator";
 
@@ -17,10 +17,10 @@ export class CreateEventComponent implements OnInit {
   to:Date;
   time:"";
   location:"";
-  event: Event;
+  exhibition: Exhibition;
   isLoading = false;
   form: FormGroup;
-  image_url:string;
+  imagePreview:string;
   private mode = "create";
   private eventId: string;
 
@@ -41,6 +41,39 @@ export class CreateEventComponent implements OnInit {
         asyncValidators: [mimeType]
       })
     });
+  }
+
+  onImagePicked(event :Event){
+    const file = (event.target as HTMLInputElement).files[0];
+    this.form.patchValue({ image: file });
+    this.form.get("image").updateValueAndValidity();
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imagePreview = reader.result as string;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  onSaveEvent(){
+    if (this.form.invalid) {
+      return;
+    }
+    this.isLoading = true;
+    if (this.mode === "create") {
+      this.eventService.addPost(
+        this.form.value.title,
+        this.form.value.content,
+        this.form.value.image
+      );
+    } else {
+      this.eventService.updatePost(
+        this.eventId,
+        this.form.value.title,
+        this.form.value.content,
+        this.form.value.image
+      );
+    }
+    this.form.reset();
   }
 
 }
