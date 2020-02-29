@@ -7,6 +7,7 @@ import { AppRoutingModule, routingComponents } from "./app-routing.module";
 import { AppHeaderComponent } from './app-header/app-header.component';
 import { GalleryCardComponent } from './gallery-card/gallery-card.component';
 import { AppFooterComponent } from './app-footer/app-footer.component';
+import { CreatePaintingComponent } from './create-painting/create-painting.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,6 +15,8 @@ import { AppFooterComponent } from './app-footer/app-footer.component';
     AppHeaderComponent,
     GalleryCardComponent,
     AppFooterComponent
+    
+  
   ],
   imports: [
     BrowserModule,

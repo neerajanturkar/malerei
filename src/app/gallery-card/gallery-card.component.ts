@@ -13,11 +13,12 @@ export class GalleryCardComponent implements OnInit {
   @Input() artist: any;
   @Input() current_bid: any;
   @Input() expiry: any;
-  
+   
+
   constructor() { }
  
   ngOnInit() {
-  
+    this.detail = '/viewPainting';
   }
 
 }

@@ -1,0 +1,83 @@
+<html>
+  <head>
+    
+  </head>
+  <body>
+      <app-header></app-header>
+      <h1>Create Painting</h1>
+      <div class="row">
+        <div class="col s6">
+          <div class="create_painiting_form">
+            <div class="input-field">
+              <!-- <label for="title" class="form-label">Title</label> -->
+              <input id="title" type="text" placeholder="Title" class="validate">
+            </div>
+            <div class="input-field">
+              <!-- <label for="artist" class="form-label">Artist</label> -->
+              <input id="artist" placeholder="Artist" type="text" class="validate">
+            </div>
+            <label class="form-label-large">Details</label>
+            <div class="input-field" style="margin-left: 2rem;">
+                <!-- <label for="dimension" class="form-label">Dimenstion</label> -->
+                <input id="dimension" placeholder="Dimenstion (Length X Breadth) in cm " type="text" class="validate">
+            </div>
+           
+            <div class="input-field" style="margin-left: 2rem;">
+                <!-- <label for="dimension" class="form-label">Dimenstion</label> -->
+                <input id="type" placeholder="Type" type="text" class="validate">
+            </div>
+            <div class="input-field" style="margin-left: 2rem;">
+                <!-- <label for="dimension" class="form-label">Dimenstion</label> -->
+                <input id="location" placeholder="Location" type="text" class="validate">
+            </div>
+            <label class="form-label-large">Bid</label>
+            <div class="input-field" style="margin-left: 2rem;margin-top: 1rem;">
+                <label for="dimension" class="form-label">Expiry</label>
+                <input id="expiry" placeholder="Expiry" type="date" class="datepicker">
+            </div>
+            <div class="input-field" style="margin-left: 2rem;">
+                <!-- <label for="dimension" class="form-label">Dimenstion</label> -->
+                <input id="starting_price" placeholder="Starting Price (in €)" type="text" class="validate">
+            </div>
+            
+
+            <div class="btn-container">
+
+              <a class="waves-effect waves-light btn-small" style="margin-left:2rem;margin-right:2rem;background: darkolivegreen;">Clear</a>
+              
+              
+              <a class="waves-effect waves-light btn-small" style="background: darkolivegreen;">Submit</a>
+            </div>
+         
+          </div>
+
+        </div>
+        
+        <div class="col s6">
+            <div class="upload-image">
+               
+                <label class="btn" for="uploadedhere" style="background-color: darkolivegreen;margin-left: 2rem;">Upload Picture</label>
+                <input type="file" id="uploadedhere" style="display: none;" (change)="uploadPicture($event)">
+                   
+              
+              <!-- <input type="file" id="uploadedhsere" onchange="myfun()" style="margin-left: 2rem;color: darkolivegreen;"> -->
+              <br>
+              <br>
+              <img src="../../assets/upload.jpg" id="changeimage1" height="500" width="500" style="margin-left: 2rem;">
+         
+                
+                 
+                
+                <!-- <img class="profile-pic" [src]="defaultExhibitorImage" />
+                <i class="material-icons upload-button camera" (click)="open($event)">
+                    add_circle
+                </i>
+                <input class="file-upload" (change)="fileUpload($event)" type="file" accept="image/jpg, image/png, image/jpeg" /> -->
+              </div>
+
+        </div>
+        
+      </div>
+      <app-footer></app-footer>
+  </body>
+</html>

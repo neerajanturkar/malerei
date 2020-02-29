@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router, ActivatedRoute } from "@angular/router";
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
@@ -7,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GalleryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+    private router: Router) { }
   title : string;
   detail: string;
   image: string;
+  image1: string;
   description: string;
   current_bid: any;
   expiry: any;
@@ -18,9 +20,9 @@ export class GalleryComponent implements OnInit {
   ngOnInit() {
     this.title = "Ice & Fire";
     this.artist = "Neeraj Anturkar";
-    // this.description = "What is an image description? An image description gives more details than alt text and allows someone to learn more about what is in an image that goes beyond alt text. Alt text gives the user the most important information while image descriptions provide further detail";
     this.detail = "http://google.com";
-    this.image = "../../assets/main_background.jpg";
+    this.image = "../../assets/pic1.jpg";
+    this.image1 = "../../assets/main_background.jpg";
     this.current_bid = 100;
     this.expiry = "20-12-2020";
   }
