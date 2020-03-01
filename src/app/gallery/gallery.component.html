@@ -38,17 +38,19 @@
       
 
         <div class="row">
-          
-          <gallery-card 
-            [title]="title"
-            [artist]="artist"
-            [current_bid]="current_bid"
-            [expiry]="expiry" 
-            [detail]="detail" 
-            [description]="description" 
-            [image]="image">
-          </gallery-card>
-          <gallery-card 
+          <div *ngFor = "let art of arts">
+            <gallery-card 
+
+              [title]="art.name"
+              [artist]="art.artist"
+              [current_bid]="art.curr_bid"
+              [expiry]="art.expiry" 
+              [detail]="art._id" 
+              [description]="description" 
+              [image]="art.image_url">
+            </gallery-card>
+          </div> 
+          <!-- <gallery-card 
             [title]="title"
             [artist]="artist"
             [current_bid]="current_bid"
@@ -64,8 +66,8 @@
           <gallery-card [title]="title" [detail]="detail" [description]="description" [image]="image"></gallery-card>
           <gallery-card [title]="title" [detail]="detail" [description]="description" [image]="image"></gallery-card>
           <gallery-card [title]="title" [detail]="detail" [description]="description" [image]="image1"></gallery-card>
-          <gallery-card [title]="title" [detail]="detail" [description]="description" [image]="image"></gallery-card>
-          <a href="/createPainting" class="btn-floating btn-large waves-effect waves-light white" style="position: fixed;bottom: 3rem;"><i class="material-icons" style="color:#ffab40">add</i></a>
+          <gallery-card [title]="title" [detail]="detail" [description]="description" [image]="image"></gallery-card> -->
+          <a href="/createPainting" class="btn-floating btn-large waves-effect waves-light white" style="position: fixed;bottom: 3rem;right: 4rem;"><i class="material-icons" style="color:#ffab40">add</i></a>
         </div>
       </div>
       <app-footer></app-footer>

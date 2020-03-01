@@ -3,6 +3,10 @@
     height: 3rem;
     color: white;
     opacity: 0.5;
+   
+    bottom: 0;
+    width: 100%;
+    
 }
 .fa {
     color: white;
@@ -11,7 +15,7 @@
     margin-top: 15px; 
     text-align: center;
     text-decoration: none;
-    
+   
    
   }
   

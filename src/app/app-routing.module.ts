@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'gallery', component: GalleryComponent},
   { path: 'createPainting', component: CreatePaintingComponent},
-  { path: 'viewPainting', component: ViewPaintingComponent}
+  { path: 'viewPainting/:id', component: ViewPaintingComponent}
 ];
 @NgModule({
   imports: [
@@ -22,7 +22,9 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
   declarations: [],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  
 })
 export class AppRoutingModule { }
 export const routingComponents = [

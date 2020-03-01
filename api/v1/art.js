@@ -7,21 +7,21 @@ router.get('/:id', getArt);
 router.post('/', createArt);
 router.put('/:id/bid', addBid);
 
-function getArt() {
+function getArt(req, res, next) {
     if (req.params.id !== undefined) {
-        Art.findOne({_id: req.params.id}, (err,event) => {
+        Art.findOne({_id: req.params.id}, (err,art) => {
             if(err){
                 res.json(err);
             } else {
-                res.json(event);
+                res.json(art);
             }
         });
     } else {
-        Art.find({}, (err, events) => {
+        Art.find({}, (err, art) => {
             if(err){
                 res.json(err);
             } else {
-                res.json(events);
+                res.json(art);
             }
         });
     }
@@ -44,6 +44,7 @@ function addBid(req, res, next) {
         if(req.body.bid !== undefined || req.body.user_id) {
             if(art.curr_bid < req.body.bid) {
                 art.bids.push({amount:req.body.bid, user_id:req.body.user_id});
+                art.curr_bid = req.body.bid;
                 art.save((err,art) => {
                     res.json({"success": true, "art": art , "message" : "Bid added successfully"});
                 });
