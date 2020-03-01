@@ -4,7 +4,9 @@ h1 {
     margin: 2.8rem 0 1.68rem 0;
     text-align: center;
 }
-
+html{ height:100%; }
+body{ min-height:100%; padding:0; margin:0; position:relative; }
+body::after{ content:''; display:block; height:100px; }
 .create_painiting_form {
     margin-left: 10%;
     margin-right: 25%;

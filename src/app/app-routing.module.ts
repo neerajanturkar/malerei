@@ -9,16 +9,13 @@ import { CreatePaintingComponent } from './create-painting/create-painting.compo
 import { ViewPaintingComponent } from './view-painting/view-painting.component';
 const routes: Routes = [
     { path: 'home', component: HomeComponent},
-    { path: 'display-event', component: ShowEventsComponent},
-    { path: 'create-event', component: CreateEventComponent},
-
- 
-  
-  { path: '', component: HomeComponent},
-  { path: 'home', component: HomeComponent},
-  { path: 'gallery', component: GalleryComponent},
-  { path: 'createPainting', component: CreatePaintingComponent},
-  { path: 'viewPainting/:id', component: ViewPaintingComponent}
+    { path: '', component: HomeComponent},
+    { path: 'event', component: ShowEventsComponent},
+    { path: 'createEvent', component: CreateEventComponent},
+    { path: 'home', component: HomeComponent},
+    { path: 'gallery', component: GalleryComponent},
+    { path: 'createPainting', component: CreatePaintingComponent},
+    { path: 'viewPainting/:id', component: ViewPaintingComponent}
 ];
 @NgModule({
   imports: [
@@ -28,9 +25,7 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
   declarations: [],
-  
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  
 })
 export class AppRoutingModule { }
 export const routingComponents = [

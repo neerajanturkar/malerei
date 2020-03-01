@@ -18,11 +18,11 @@ export class ViewPaintingComponent implements OnInit {
   bids = [];
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get("id");
-    
-    this.galleryService.getArts(this.id).then(data => {
-      this.art = data[0];
-      this.bids = data[0].bids;
-      
+    console.log(this.id);
+    this.galleryService.getArt(this.id).then(data => {
+      this.art = data;
+      this.bids = data.bids;
+      console.log(this.art);
     });
 
   }

@@ -13,8 +13,8 @@ export class CreatePaintingComponent implements OnInit {
   ngOnInit() {
 
   }
-  
-  uploadPicture(event){
+
+  uploadPicture(event) {
 
   }
 }
