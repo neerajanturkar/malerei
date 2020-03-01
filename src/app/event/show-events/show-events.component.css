@@ -2,7 +2,7 @@ i.medium.material-icons {
     border: 1px solid white;
     border-radius: 100px;
     background: white;
-    box-shadow: -2px 4px 56px 0px rgba(50,50,50,1);
+    box-shadow:  1px 1px 5px rgba(10, 10, 10, 1);
     cursor: pointer;
 }
 .card{

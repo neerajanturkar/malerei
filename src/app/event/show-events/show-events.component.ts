@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { Exhibition } from '../../model/event.model';
 import { EventsService } from '../../services/events.service';
 import { Subscription } from 'rxjs';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-show-events',
