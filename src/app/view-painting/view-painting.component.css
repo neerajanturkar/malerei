@@ -1,0 +1,45 @@
+h1 {
+    font-size: 2rem;
+    line-height: 110%;
+    margin: 2.8rem 0 1.68rem 0;
+    text-align: center;
+}
+
+td{
+    padding: 5px 10px;
+}
+.create_painiting_form {
+    margin-left: 10%;
+    margin-right: 25%;
+    margin-top: 5%;
+}
+.form-label {
+    color: black;
+    margin-top:1rem;
+}
+.form-label-large{
+    font-size: 2rem;
+    font-weight: 300;
+    color: black;
+}
+.form-label-medium{
+    font-size: 1.5rem;
+    font-weight: 100;
+    color: darkolivegreen;
+}
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: darkolivegreen;
+    opacity: 1; /* Firefox */
+  }
+
+.btn-container {
+    text-align: right;
+}
+
+.table-header {
+    font-size: larger;
+    font-weight: 500;
+    color: darkolivegreen;
+}

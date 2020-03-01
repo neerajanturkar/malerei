@@ -1,0 +1,11 @@
+nav {
+    background-color: black;
+    opacity: 0.35;
+}
+nav .brand-logo {
+    position: absolute;
+    color: #fff;
+    display: inline-block;
+    font-size: 1.0rem;
+    padding-left: 1rem;
+}

@@ -25,6 +25,11 @@ import {
 } from "@angular/material";
 
 
+
+import { AppHeaderComponent } from './app-header/app-header.component';
+import { GalleryCardComponent } from './gallery-card/gallery-card.component';
+import { AppFooterComponent } from './app-footer/app-footer.component';
+import { CreatePaintingComponent } from './create-painting/create-painting.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +38,12 @@ import {
     EventComponent,
     CreateEventComponent,
     ShowEventsComponent,
-    UpdateEventComponent
+    UpdateEventComponent,
+    AppHeaderComponent,
+    GalleryCardComponent,
+    AppFooterComponent
+    
+  
   ],
   imports: [
     BrowserModule,
