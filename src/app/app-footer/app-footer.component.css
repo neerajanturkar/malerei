@@ -3,7 +3,9 @@
     height: 3rem;
     color: white;
     opacity: 0.5;
-   
+    /*position: relative;*/
+    /*position: fixed;*/
+    /*top: 0;*/
     bottom: 0;
     width: 100%;
     
@@ -18,4 +20,3 @@
    
    
   }
-  

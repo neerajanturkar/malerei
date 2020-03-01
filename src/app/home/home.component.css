@@ -1,21 +1,11 @@
-.background_image {
-    height: 102.5rem;
-  
-   
+
+.header-img img {
+    width: 100%;
+    height: 700px;
 }
 
-html{
-    margin: -10px;
-    background: url('../../assets/main_background.jpg') no-repeat;
-    /* background-size: cover; */
-    background-attachment: fixed;
-    background-size: 100%;
-}
-h1 {
-    position: fixed;
-    font-family: sans-serif;
-    margin: 3rem;
-    font-size: 2.5rem;
-    font-weight: lighter;
-    color: white;
+.card{
+    width: 100%;
+    box-shadow: 1px 1px 5px rgba(10, 10, 10, 1);
+    cursor: pointer;
 }

@@ -1,10 +1,28 @@
 <html>
   <body>
-      <!-- <img src="../../assets/main_background.jpg" class="background_image"> -->
       <div class="background_image">
-        <app-header></app-header>
+<!--        <app-header></app-header>-->
       </div>
-      
+
   </body>
 
 </html>
+<div class="header-img">
+  <img src="../../assets/images/home-image-1.jpg">
+
+</div>
+<div class="container">
+    <h3>UPCOMING EVENT</h3>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <div class="row">
+      <div class="col s3 m4" *ngFor="let exhibition of exhibitions">
+        <div class="card" (click)='onEventPage()'>
+          <div class="card-image"><img [src]="exhibition.image_url" [alt]="exhibition.name">
+            
+            <span class="card-title">{{exhibition.name}}</span>
+            <!-- <span>{{exhibition.time && exhibition.location}}</span> -->
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
