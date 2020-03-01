@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { Exhibition} from '../../model/event.model';
+import { Exhibition } from '../../model/event.model';
 import { ActivatedRoute, ParamMap } from "@angular/router";
 import { mimeType } from "./mime-type.validator";
 
@@ -13,8 +13,8 @@ import { EventsService } from '../../services/events.service';
 })
 export class CreateEventComponent implements OnInit {
   name:"";
-  from:Date;
-  to:Date;
+  from:"";
+  to:"";
   time:"";
   location:"";
   exhibition: Exhibition;
@@ -32,14 +32,44 @@ export class CreateEventComponent implements OnInit {
       name: new FormControl(null, {
         validators: [Validators.required, Validators.minLength(3)]
       }),
-      location: new FormControl(null, { validators: [Validators.required] }),
-      time: new FormControl(null, { validators: [Validators.required] }),
       from: new FormControl(null, { validators: [Validators.required] }),
       to: new FormControl(null, { validators: [Validators.required] }),
+      time: new FormControl(null, { validators: [Validators.required] }),
+      location: new FormControl(null, { validators: [Validators.required] }),
       image: new FormControl(null, {
         validators: [Validators.required],
         asyncValidators: [mimeType]
       })
+    });
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      if (paramMap.has("eventId")) {
+        this.mode = "edit";
+        this.eventId = paramMap.get("eventId");
+        this.isLoading = true;
+        this.eventService.getEvent(this.eventId).subscribe(postData => {
+          this.isLoading = false;
+          this.exhibition = {
+            id: postData._id,
+            name: postData.name,
+            from: postData.from,
+            to: postData.to,
+            time: postData.time,
+            location: postData.location,
+            image_url: postData.image_url
+          };
+          this.form.setValue({
+            name: this.exhibition.name,
+            from: this.exhibition.from,
+            to: this.exhibition.to,
+            time: this.exhibition.time,
+            location: this.exhibition.location,
+            image: this.exhibition.image_url
+          });
+        });
+      } else {
+        this.mode = "create";
+        this.eventId = null;
+      }
     });
   }
 
@@ -52,6 +82,7 @@ export class CreateEventComponent implements OnInit {
       this.imagePreview = reader.result as string;
     };
     reader.readAsDataURL(file);
+    console.log(file)
   }
 
   onSaveEvent(){
@@ -60,19 +91,23 @@ export class CreateEventComponent implements OnInit {
     }
     this.isLoading = true;
     if (this.mode === "create") {
-      this.eventService.addPost(
-        this.form.value.title,
-        this.form.value.content,
+      this.eventService.addEvent(
+        this.form.value.name,
+        this.form.value.from,
+        this.form.value.to,
+        this.form.value.time,
+        this.form.value.location,
         this.form.value.image
       );
-    } else {
-      this.eventService.updatePost(
-        this.eventId,
-        this.form.value.title,
-        this.form.value.content,
-        this.form.value.image
-      );
+    // } else {
+    //   this.eventService.updatePost(
+    //     this.eventId,
+    //     this.form.value.title,
+    //     this.form.value.content,
+    //     this.form.value.image
+    //   );
     }
+    console.log(this.form.value.image);
     this.form.reset();
   }
 
