@@ -90,9 +90,9 @@ router.get("/", (req, res, next) => {
  
   
   router.get("/:id", (req, res, next) => {
-    Post.findById(req.params.id).then(event => {
+    Exhibition.findById(req.params.id).then(event => {
       if (event) {
-        res.status(200).json(post);
+        res.status(200).json(event);
       } else {
         res.status(404).json({ message: "Event not found!" });
       }

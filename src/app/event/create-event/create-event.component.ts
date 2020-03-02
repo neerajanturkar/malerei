@@ -41,36 +41,37 @@ export class CreateEventComponent implements OnInit {
         asyncValidators: [mimeType]
       })
     });
-    this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      if (paramMap.has("eventId")) {
-        this.mode = "edit";
-        this.eventId = paramMap.get("eventId");
-        this.isLoading = true;
-        this.eventService.getEvent(this.eventId).subscribe(postData => {
-          this.isLoading = false;
-          this.exhibition = {
-            id: postData._id,
-            name: postData.name,
-            from: postData.from,
-            to: postData.to,
-            time: postData.time,
-            location: postData.location,
-            image_url: postData.image_url
-          };
-          this.form.setValue({
-            name: this.exhibition.name,
-            from: this.exhibition.from,
-            to: this.exhibition.to,
-            time: this.exhibition.time,
-            location: this.exhibition.location,
-            image: this.exhibition.image_url
-          });
-        });
-      } else {
-        this.mode = "create";
-        this.eventId = null;
-      }
-    });
+    // this.route.paramMap.subscribe((paramMap: ParamMap) => {
+    //   console.log(paramMap);
+    //   if (paramMap.has("eventId")) {
+    //     this.mode = "edit";
+    //     this.eventId = paramMap.get("eventId");
+    //     this.isLoading = true;
+    //     this.eventService.getEvent(this.eventId).subscribe(postData => {
+    //       this.isLoading = false;
+    //       this.exhibition = {
+    //         id: postData._id,
+    //         name: postData.name,
+    //         from: postData.from,
+    //         to: postData.to,
+    //         time: postData.time,
+    //         location: postData.location,
+    //         image_url: postData.image_url
+    //       };
+    //       this.form.setValue({
+    //         name: this.exhibition.name,
+    //         from: this.exhibition.from,
+    //         to: this.exhibition.to,
+    //         time: this.exhibition.time,
+    //         location: this.exhibition.location,
+    //         image: this.exhibition.image_url
+    //       });
+    //     });
+    //   } else {
+    //     this.mode = "create";
+    //     this.eventId = null;
+    //   }
+    // });
   }
 
   onImagePicked(event :Event){
@@ -100,14 +101,11 @@ export class CreateEventComponent implements OnInit {
         this.form.value.image
       );
     // } else {
-    //   this.eventService.updatePost(
+    //   this.eventService.getEventById(
     //     this.eventId,
-    //     this.form.value.title,
-    //     this.form.value.content,
-    //     this.form.value.image
     //   );
     }
-    console.log(this.form.value.image);
+    //console.log(this.eventId);
     this.form.reset();
   }
 

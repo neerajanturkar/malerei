@@ -17,11 +17,13 @@ import {
   MatInputModule,
   MatCardModule,
   MatButtonModule,
+  MatTableModule,
   MatToolbarModule,
   MatExpansionModule,
   MatProgressSpinnerModule,
   MatNativeDateModule,
-  MatDatepickerModule
+  MatDatepickerModule,
+  MatSnackBarModule
 } from "@angular/material";
 
 
@@ -30,6 +32,7 @@ import { AppHeaderComponent } from './app-header/app-header.component';
 import { GalleryCardComponent } from './gallery-card/gallery-card.component';
 import { AppFooterComponent } from './app-footer/app-footer.component';
 import { CreatePaintingComponent } from './create-painting/create-painting.component';
+import { DetailEventComponent } from './event/detail-event/detail-event.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,11 +44,13 @@ import { CreatePaintingComponent } from './create-painting/create-painting.compo
     UpdateEventComponent,
     AppHeaderComponent,
     GalleryCardComponent,
-    AppFooterComponent
+    AppFooterComponent,
+    DetailEventComponent
     
   
   ],
   imports: [
+    
     BrowserModule,
     RouterModule,
     AppRoutingModule,
@@ -54,6 +59,8 @@ import { CreatePaintingComponent } from './create-painting/create-painting.compo
     MatInputModule,
     MatCardModule,
     MatButtonModule,
+    MatTableModule,
+    MatSnackBarModule,
     MatToolbarModule,
     MatExpansionModule,
     MatProgressSpinnerModule,
@@ -64,6 +71,7 @@ import { CreatePaintingComponent } from './create-painting/create-painting.compo
   ],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents: [DetailEventComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

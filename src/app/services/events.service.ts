@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Subject, from } from "rxjs";
 import { map } from "rxjs/operators";
-
+import { Observable } from 'rxjs';
 import { Router } from "@angular/router";
 import { Exhibition } from '../model/event.model';
 
@@ -11,6 +11,7 @@ import { Exhibition } from '../model/event.model';
 })
 export class EventsService {
   private exhibitions: Exhibition[] = [];
+  exhibition : Exhibition;
   private exhibitionUpdate = new Subject<Exhibition[]>();
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -46,11 +47,15 @@ export class EventsService {
     return this.exhibitionUpdate.asObservable();
   }
 
-  getPost(id: string) {
-    return this.http.get<{ _id: string, name: string, from: Date, to: Date, location: string, time: string, image_url: string }>(
-      "http://localhost:5000/apiv1/events/" + id
+  getEventById(id: string) {
+    return this.http.get<{ _id: string, name: string, from: string, to: string, location: string, time: string, image_url: string }>(
+      "http://localhost:5000/api/v1/events/" + id
     );
   }
+  // getEventById() : Observable<Exhibition[]> {
+  //   return this.http.get<Exhibition[]>("http://localhost:5000/api/v1/events/");
+  // }
+
 
   addEvent(name: string, location: string, time: string, from:string, to:string, image: File) {
     const postData = new FormData();

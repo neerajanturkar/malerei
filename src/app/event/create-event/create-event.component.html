@@ -1,7 +1,5 @@
 <div class="container">
   <h3>Add Event</h3>
-
-  
     <mat-spinner *ngIf="isLoading"></mat-spinner>
     <form [formGroup]="form" (submit)="onSaveEvent()" *ngIf="!isLoading">
     <div class="row">
@@ -39,7 +37,7 @@
             <textarea matInput rows="2" formControlName="location" placeholder="Event location"></textarea>
             <mat-error *ngIf="form.get('location').invalid">Please enter a event location.</mat-error>
           </mat-form-field>
-      </div>
+        </div>
 
       <div class="col s6">
         <span class="default-image"><img src="../../../assets/images/card-image-1.jpg"></span>
@@ -54,8 +52,4 @@
     </div>
     <button mat-raised-button color="accent" type="submit">Save Event</button>
   </form>
-  
-  
-
-
 </div>

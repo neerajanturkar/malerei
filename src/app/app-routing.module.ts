@@ -7,18 +7,18 @@ import { CreateEventComponent } from './event/create-event/create-event.componen
 import { GalleryComponent } from './gallery/gallery.component';
 import { CreatePaintingComponent } from './create-painting/create-painting.component';
 import { ViewPaintingComponent } from './view-painting/view-painting.component';
+import { DetailEventComponent } from './event/detail-event/detail-event.component';
 const routes: Routes = [
     { path: 'home', component: HomeComponent},
-    { path: 'display-event', component: ShowEventsComponent},
-    { path: 'create-event', component: CreateEventComponent},
-
- 
-  
+   
   { path: '', component: HomeComponent},
-  { path: 'home', component: HomeComponent},
+  
   { path: 'gallery', component: GalleryComponent},
   { path: 'createPainting', component: CreatePaintingComponent},
-  { path: 'viewPainting', component: ViewPaintingComponent}
+  { path: 'viewPainting', component: ViewPaintingComponent},
+  { path: 'display-event', component: ShowEventsComponent},
+  { path: 'create-event', component: CreateEventComponent},
+  { path: 'event-details/:id', component: DetailEventComponent}
 ];
 @NgModule({
   imports: [
