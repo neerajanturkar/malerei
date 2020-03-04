@@ -14,11 +14,13 @@ export class GalleryCardComponent implements OnInit {
   @Input() current_bid: any;
   @Input() expiry: any;
    
-
+  bid_url: any;
   constructor() { }
  
   ngOnInit() {
-    this.detail = '/viewPainting';
+    this.bid_url = '/view-painting/' + this.detail;
+    console.log(this.bid_url);
+    
   }
 
 }

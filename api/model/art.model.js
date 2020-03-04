@@ -13,7 +13,7 @@ const artSchema = mongoose.Schema({
     status: { type: String, require:true, enum:['available','sold'] },
     bids: [
         {
-            datetime: {type: Date, default: Date.now()},
+            datetime: {type: Date, default: Date.now},
             amount: {type: Number},
             user_id: {type: Schema.Types.ObjectId , require: true , ref: 'users'}
         }

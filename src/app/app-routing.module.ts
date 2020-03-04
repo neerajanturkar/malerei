@@ -2,17 +2,19 @@ import { NgModule , CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { Routes, RouterModule } from "@angular/router";
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
+import { ShowEventsComponent } from './event/show-events/show-events.component';
+import { CreateEventComponent } from './event/create-event/create-event.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { CreatePaintingComponent } from './create-painting/create-painting.component';
 import { ViewPaintingComponent } from './view-painting/view-painting.component';
 const routes: Routes = [
-
-  
-  { path: '', component: HomeComponent},
-  { path: 'home', component: HomeComponent},
-  { path: 'gallery', component: GalleryComponent},
-  { path: 'createPainting', component: CreatePaintingComponent},
-  { path: 'viewPainting', component: ViewPaintingComponent}
+    { path: 'home', component: HomeComponent},
+    { path: '', component: HomeComponent},
+    { path: 'display-event', component: ShowEventsComponent},
+    { path: 'create-event', component: CreateEventComponent},
+    { path: 'gallery', component: GalleryComponent},
+    { path: 'create-painting', component: CreatePaintingComponent},
+    { path: 'view-painting/:id', component: ViewPaintingComponent}
 ];
 @NgModule({
   imports: [
@@ -22,7 +24,7 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
   declarations: [],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppRoutingModule { }
 export const routingComponents = [
