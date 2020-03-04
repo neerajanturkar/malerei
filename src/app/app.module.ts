@@ -3,6 +3,8 @@ import { NgModule , CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AppRoutingModule, routingComponents } from "./app-routing.module";
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { EventComponent } from './event/event.component';
 import { CreateEventComponent } from './event/create-event/create-event.component';
@@ -11,7 +13,6 @@ import { UpdateEventComponent } from './event/update-event/update-event.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import {FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
 import {MatDialogModule} from '@angular/material/dialog';
 import {
   MatInputModule,
@@ -35,6 +36,11 @@ import { AppFooterComponent } from './app-footer/app-footer.component';
 import { CreatePaintingComponent } from './create-painting/create-painting.component';
 import { DetailEventComponent } from './event/detail-event/detail-event.component';
 import { RegisterComponent } from './register/register.component';
+import { GalleryService } from './gallery.service';
+import { ActivatedRoute } from "@angular/router";
+import { HttpClient } from 'selenium-webdriver/http';
+
+// import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,8 +61,11 @@ import { RegisterComponent } from './register/register.component';
   imports: [
     
     BrowserModule,
+    HttpModule,
+    HttpClientModule,
     RouterModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatInputModule,
@@ -75,7 +84,7 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     RxReactiveFormsModule
   ],
-  providers: [],
+  providers: [GalleryService],
   bootstrap: [AppComponent],
   entryComponents: [RegisterComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

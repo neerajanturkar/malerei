@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { createClient, Entry } from 'contentful';
 @Component({
   selector: 'app-create-painting',
   templateUrl: './create-painting.component.html',
@@ -8,29 +7,22 @@ import { Component, OnInit } from '@angular/core';
 export class CreatePaintingComponent implements OnInit {
 
   constructor() { }
-
-  // private cdaClient = createClient({
-  //   space: 're38ihlwwbee',
-  //   accessToken: 'dNzMMuh3TTUoCP-JEgW8tosmQrSDv7iH6lGrKKoqMNk'
-  // });
+  imagePreview: any;
 
   ngOnInit() {
-    // let items = this.getProducts();
-    // console.log(items);
+    this.imagePreview = '../../assets/upload.jpg';
   }
 
-  // getProducts(query?: object): Promise<Entry<any>[]> {
-  //   return this.cdaClient.getEntries(Object.assign({}, query))
-  //   .then(res => res.items);
-  // }
-  
-  uploadPicture(event){
-
-
- 
-  
-    
-    
-    
-}
+  uploadPicture(event) {
+    const file = (event.target as HTMLInputElement).files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imagePreview = reader.result as string;
+      console.log(this.imagePreview);
+    };
+    reader.readAsDataURL(file);
+  }
+  submit() {
+    alert('submit called');
+  }
 }

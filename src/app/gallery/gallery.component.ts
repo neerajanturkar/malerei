@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
+import { GalleryService } from '../gallery.service';
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.css']
+  styleUrls: ['./gallery.component.css'],
+  providers: [GalleryService]
 })
 export class GalleryComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,
+  constructor(private galleryService: GalleryService,
     private router: Router) { }
   title : string;
   detail: string;
@@ -17,6 +19,8 @@ export class GalleryComponent implements OnInit {
   current_bid: any;
   expiry: any;
   artist: any;
+  filters:any;
+  arts = [];
   ngOnInit() {
     this.title = "Ice & Fire";
     this.artist = "Neeraj Anturkar";
@@ -25,6 +29,11 @@ export class GalleryComponent implements OnInit {
     this.image1 = "../../assets/main_background.jpg";
     this.current_bid = 100;
     this.expiry = "20-12-2020";
+
+    this.galleryService.getArts(this.filters).then(data => {
+      this.arts = data;
+      console.log(this.arts);
+    });
   }
 
 }

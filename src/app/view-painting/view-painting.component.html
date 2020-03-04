@@ -3,18 +3,18 @@
     
   </head>
   <body>
-      <app-header></app-header>
+<!--      <app-header></app-header>-->
      
       <div class="row">
         <div class="col s6">
           <div class="create_painiting_form">
           
-              <label  class="form-label-large">Title</label>
+              <label  class="form-label-large">{{art.name}}</label>
              
               <br>
               
            
-              <label  class="form-label-medium">Artist</label>
+              <label  class="form-label-medium">{{art.artist}}</label>
               <br>
               <br>
               <br>
@@ -25,7 +25,7 @@
                 <label class="form-label-medium" style="font-weight:400">Dimenstion : </label>
               </td>
               <td style="text-align:left">  
-                <label class="form-label-medium">100 X 300 cms</label>
+                <label class="form-label-medium">{{art.dimension}}</label>
               </td>
             </tr>
             <tr>
@@ -33,7 +33,7 @@
                   <label class="form-label-medium" style="font-weight:400">Type : </label>
                 </td>
                 <td style="text-align:left">  
-                  <label class="form-label-medium">Abstract</label>
+                  <label class="form-label-medium">{{art.art_type}}</label>
                 </td>
               </tr>
               <tr>
@@ -41,7 +41,7 @@
                     <label class="form-label-medium" style="font-weight:400">Location : </label>
                   </td>
                   <td style="text-align:left">  
-                    <label class="form-label-medium">heidelberg</label>
+                    <label class="form-label-medium">{{art.location}}</label>
                   </td>
                 </tr>
             </table>
@@ -55,7 +55,7 @@
                     <label class="form-label-medium" style="font-weight:400">Expiry : </label>
                   </td>
                   <td style="text-align:left">  
-                    <label class="form-label-medium">20-FEB-2020</label>
+                    <label class="form-label-medium">{{art.expiry | date:'mediumDate'}}</label>
                   </td>
                 </tr>
                 <tr>
@@ -63,7 +63,7 @@
                       <label class="form-label-medium" style="font-weight:400">Starting Price : </label>
                     </td>
                     <td style="text-align:left">  
-                      <label class="form-label-medium">150 €</label>
+                      <label class="form-label-medium">{{art.starting_price}} €</label>
                     </td>
                   </tr>
                   <tr>
@@ -71,7 +71,7 @@
                         <label class="form-label-medium" style="font-weight:400">Current Bid : </label>
                       </td>
                       <td style="text-align:left">  
-                        <label class="form-label-medium">200 €</label>
+                        <label class="form-label-medium">{{art.curr_bid}} €</label>
                       </td>
                     </tr>
                   <tr>
@@ -79,10 +79,10 @@
                         <label class="form-label-medium" style="font-weight:400">Your Bid : </label>
                       </td>
                       <td style="text-align:left">  
-                          <input id="location" type="number">
+                          <input id="location" type="number" [(ngModel)]="placed_bid">
                       </td>
                       <td>
-                          <a class="waves-effect waves-light btn-small" style="background: darkolivegreen;">Bid</a>
+                          <a (click)="placeBid();" class="waves-effect waves-light btn-small" style="background: darkolivegreen;">Bid</a>
                       </td>
                     </tr>
                 </table>
@@ -101,7 +101,7 @@
               
               <br>
               <br>
-              <img src="../../assets/upload.jpg" id="changeimage1" height="500" width="500" style="margin-left: 2rem;">
+              <img src="../../assets/pic1.jpg" id="changeimage1" style="margin-left: 2rem;max-height: 500px;max-width: 500px;">
          
                 
                  
@@ -121,53 +121,14 @@
           </thead>
   
           <tbody>
-            <tr>
-              <td>10</td>
-              <td>Eclair</td>
-              <td>$0.87</td>
+            <tr *ngFor="let bid of bids.reverse(); let i = index;">
+              <td>{{i}}</td>
+              <td>{{bid.datetime | date:'medium'}}</td>
+              <td>{{bid.amount}} €</td>
             </tr>
-            <tr>
-              <td>9</td>
-              <td>Jellybean</td>
-              <td>$3.76</td>
-            </tr>
-            <tr>
-              <td>8</td>
-              <td>Lollipop</td>
-              <td>$7.00</td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td>Eclair</td>
-              <td>$0.87</td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>Jellybean</td>
-              <td>$3.76</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Lollipop</td>
-              <td>$7.00</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Eclair</td>
-              <td>$0.87</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Jellybean</td>
-              <td>$3.76</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Lollipop</td>
-              <td>$7.00</td>
-            </tr>
+            
           </tbody>
         </table>
-      <app-footer></app-footer>
+<!--<app-footer></app-footer>-->
   </body>
 </html>

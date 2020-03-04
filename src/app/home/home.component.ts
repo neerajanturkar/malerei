@@ -19,6 +19,7 @@ export interface Type{
 export class HomeComponent implements OnInit, OnDestroy {
   exhibitions: Exhibition[] = [];
   isLoading = false;
+  filter: any;
   private postsSub: Subscription;
 
   name: '';
@@ -49,15 +50,16 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
    
     this.isLoading = true;
-    this.eventService.getEvent();
+    this.eventService.getEvent(this.filter);
     this.postsSub = this.eventService.getPostUpdateListener()
       .subscribe((exhibitions: Exhibition[]) => {
         this.isLoading = false;
         this.exhibitions = exhibitions;
+        console.log(this.exhibitions);
       });
   }
 
-  onEventPage(){
+  onEventPage() {
     this.router.navigate(["/display-event"]);
   }
 

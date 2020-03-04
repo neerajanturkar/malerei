@@ -83,7 +83,7 @@ export class CreateEventComponent implements OnInit {
       this.imagePreview = reader.result as string;
     };
     reader.readAsDataURL(file);
-    console.log(file)
+    console.log(file);
   }
 
   onSaveEvent(){

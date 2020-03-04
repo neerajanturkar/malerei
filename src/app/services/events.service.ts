@@ -16,7 +16,7 @@ export class EventsService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  getEvent() {
+  getEvent(id: any) {
     this.http
       .get<{ message: string; exhibitions: any }>("http://localhost:5000/api/v1/events/")
       .pipe(
@@ -49,6 +49,10 @@ export class EventsService {
 
   getEventById(id: string) {
     return this.http.get<{ _id: string, name: string, from: string, to: string, location: string, time: string, image_url: string }>(
+  
+    }
+      getPost(id: string) {
+    return this.http.get<{ _id: string, name: string, from: Date, to: Date, location: string, time: string, image_url: string }>(
       "http://localhost:5000/api/v1/events/" + id
     );
   }

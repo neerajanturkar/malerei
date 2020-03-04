@@ -14,6 +14,7 @@ import { ActivatedRoute, ParamMap } from "@angular/router";
 export class ShowEventsComponent implements OnInit, OnDestroy{
   exhibitions: Exhibition[] = [];
   isLoading = false;
+  filters: any;
   private postsSub: Subscription;
 
   constructor(private router: Router,
@@ -26,7 +27,7 @@ export class ShowEventsComponent implements OnInit, OnDestroy{
       console.log(paramMap);
     });
     this.isLoading = true;
-    this.eventService.getEvent();
+    this.eventService.getEvent(this.filters);
     this.postsSub = this.eventService.getPostUpdateListener()
       .subscribe((exhibitions: Exhibition[]) => {
         this.isLoading = false;
