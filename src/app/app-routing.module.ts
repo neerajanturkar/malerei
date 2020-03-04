@@ -11,11 +11,11 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent},
     { path: '', component: HomeComponent},
     { path: 'event', component: ShowEventsComponent},
-    { path: 'createEvent', component: CreateEventComponent},
+    { path: 'create-event', component: CreateEventComponent},
     { path: 'home', component: HomeComponent},
     { path: 'gallery', component: GalleryComponent},
-    { path: 'createPainting', component: CreatePaintingComponent},
-    { path: 'viewPainting/:id', component: ViewPaintingComponent}
+    { path: 'create-painting', component: CreatePaintingComponent},
+    { path: 'view-painting/:id', component: ViewPaintingComponent}
 ];
 @NgModule({
   imports: [

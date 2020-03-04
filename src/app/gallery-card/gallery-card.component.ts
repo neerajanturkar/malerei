@@ -18,7 +18,7 @@ export class GalleryCardComponent implements OnInit {
   constructor() { }
  
   ngOnInit() {
-    this.bid_url = '/viewPainting/' + this.detail; 
+    this.bid_url = '/view-painting/' + this.detail;
     console.log(this.bid_url);
     
   }

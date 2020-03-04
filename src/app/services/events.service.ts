@@ -48,7 +48,7 @@ export class EventsService {
 
   getPost(id: string) {
     return this.http.get<{ _id: string, name: string, from: Date, to: Date, location: string, time: string, image_url: string }>(
-      "http://localhost:5000/apiv1/events/" + id
+      "http://localhost:5000/api/v1/events/" + id
     );
   }
 

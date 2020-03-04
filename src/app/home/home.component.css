@@ -9,3 +9,18 @@
     box-shadow: 1px 1px 5px rgba(10, 10, 10, 1);
     cursor: pointer;
 }
+.login{
+    margin-top: -6rem;
+    height: 50rem !important;;
+    background: url('../../assets/images/home-image-1.jpg') no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+
+}
+
+.login-inputs {
+    text-align: center;
+    margin-left: 20rem;
+    margin-right: 20rem;
+    margin-top: 5rem;
+}

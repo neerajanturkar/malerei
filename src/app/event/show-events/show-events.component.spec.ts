@@ -1,14 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ShowEventsComponent } from './show-events.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
+import {RouterTestingModule} from '@angular/router/testing';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('ShowEventsComponent', () => {
   let component: ShowEventsComponent;
   let fixture: ComponentFixture<ShowEventsComponent>;
 
   beforeEach(async(() => {
+
     TestBed.configureTestingModule({
-      declarations: [ ShowEventsComponent ]
+      imports: [ FormsModule, RouterModule, RouterTestingModule ,HttpClientTestingModule ],
+      declarations: [ ShowEventsComponent ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
   }));

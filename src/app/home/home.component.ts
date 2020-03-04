@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       .subscribe((exhibitions: Exhibition[]) => {
         this.isLoading = false;
         this.exhibitions = exhibitions;
+        console.log(this.exhibitions);
       });
   }
 
