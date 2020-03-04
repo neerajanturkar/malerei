@@ -3,7 +3,6 @@ import { Router } from "@angular/router";
 import { Exhibition } from '../../model/event.model';
 import { EventsService } from '../../services/events.service';
 import { Subscription } from 'rxjs';
-//import {MatDialogConfig, MatDialog,  MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import { DetailEventComponent } from '../detail-event/detail-event.component';
 import { ActivatedRoute, ParamMap } from "@angular/router";
 
@@ -19,7 +18,7 @@ export class ShowEventsComponent implements OnInit, OnDestroy{
 
   constructor(private router: Router,
               private eventService: EventsService,
-              //public dialog: MatDialog,
+              
               public route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -70,15 +69,6 @@ export class ShowEventsComponent implements OnInit, OnDestroy{
   onCreateEvent(){
     this.router.navigate(["/create-event"]);
   }
-
-  //openDialog(){
-    //this.router.navigate(["/create-event"]);
-    // const dialogConfig = new MatDialogConfig();
-    // dialogConfig.disableClose = true;
-    // dialogConfig.autoFocus = true;
-    // dialogConfig.width = "70%";
-    // this.dialog.open(DetailEventComponent, dialogConfig);
-  //}
 
   ngOnDestroy() {
     this.postsSub.unsubscribe();

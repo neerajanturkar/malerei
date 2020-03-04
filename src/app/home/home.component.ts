@@ -3,6 +3,13 @@ import { Router } from "@angular/router";
 import { Exhibition } from '../model/event.model';
 import { EventsService } from '../services/events.service';
 import { Subscription } from 'rxjs';
+import { User } from '../model/user.model';
+import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
+
+export interface Type{
+  typeName: string;
+}
 
 @Component({
   selector: 'app-home',
@@ -14,10 +21,33 @@ export class HomeComponent implements OnInit, OnDestroy {
   isLoading = false;
   private postsSub: Subscription;
 
+  name: '';
+  type: 'select';
+  email: '';
+  password: '';
+  confirmPassword: '';
+  user: User;
+  registerForm: FormGroup;
+  private mode = "create";
+
+  types: Type[] = [
+    {typeName: 'User'},
+    {typeName: 'Admin'}
+  ];
+  
   constructor(private router: Router,
-              private eventService: EventsService) { }
+              private eventService: EventsService,
+              private formBuilder:FormBuilder) { }
 
   ngOnInit() {
+    this.registerForm = this.formBuilder.group({
+      'name': ['', Validators.required],
+      'type': ['', Validators.required],
+      'email': ['', [Validators.required, Validators.email]],
+      'password': ['', [Validators.required, Validators.minLength(4)]],
+      'confirmPassword': ['', RxwebValidators.compare({fieldName: 'password'})]
+    });
+   
     this.isLoading = true;
     this.eventService.getEvent();
     this.postsSub = this.eventService.getPostUpdateListener()

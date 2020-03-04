@@ -10,8 +10,16 @@
         <li>
           <a class="nav-link" routerLink="/gallery" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Gallery</a>
         </li>
+        <li>
+          <a class="nav-link" routerLink="/register" 
+            routerLinkActive="active" 
+            [routerLinkActiveOptions]="{exact:true}" (click)="onRegiterDialog()">
+            Register
+          </a>
+        </li>
       </ul>
     </div>
     </div>
   </nav>
 </div>
+/

@@ -9,8 +9,8 @@ import { CreateEventComponent } from './event/create-event/create-event.componen
 import { ShowEventsComponent } from './event/show-events/show-events.component';
 import { UpdateEventComponent } from './event/update-event/update-event.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { ReactiveFormsModule } from "@angular/forms";
+import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
+import {FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import {MatDialogModule} from '@angular/material/dialog';
 import {
@@ -23,7 +23,8 @@ import {
   MatProgressSpinnerModule,
   MatNativeDateModule,
   MatDatepickerModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatSelectModule
 } from "@angular/material";
 
 
@@ -33,6 +34,7 @@ import { GalleryCardComponent } from './gallery-card/gallery-card.component';
 import { AppFooterComponent } from './app-footer/app-footer.component';
 import { CreatePaintingComponent } from './create-painting/create-painting.component';
 import { DetailEventComponent } from './event/detail-event/detail-event.component';
+import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,8 @@ import { DetailEventComponent } from './event/detail-event/detail-event.componen
     AppHeaderComponent,
     GalleryCardComponent,
     AppFooterComponent,
-    DetailEventComponent
+    DetailEventComponent,
+    RegisterComponent
     
   
   ],
@@ -62,16 +65,19 @@ import { DetailEventComponent } from './event/detail-event/detail-event.componen
     MatTableModule,
     MatSnackBarModule,
     MatToolbarModule,
+    MatSelectModule,
     MatExpansionModule,
     MatProgressSpinnerModule,
     HttpClientModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatDialogModule,
+    FormsModule,
+    RxReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [DetailEventComponent],
+  entryComponents: [RegisterComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

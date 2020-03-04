@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialogRef} from '@angular/material';
 import { EventsService } from 'src/app/services/events.service';
 import { ActivatedRoute, ParamMap } from "@angular/router";
 import { Exhibition } from '../../model/event.model';
@@ -32,7 +31,7 @@ export class DetailEventComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
 
-  constructor(//public dialogBox: MatDialogRef<DetailEventComponent>,
+  constructor(
               public eventService: EventsService,
               public route: ActivatedRoute) { }
 
