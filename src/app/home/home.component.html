@@ -2,38 +2,38 @@
         <div class="parallax">
             <div class="login">
 <!--                <h1>L O G I N</h1>-->
-                <div class="section black" style="padding-top: 10rem;opacity: 0.55">
+<!--                <div class="section black" style="padding-top: 10rem;opacity: 0.55">-->
 
-                    <div class="row container">
-                        <h2 class="header" style="text-align: center;font-size: 3rem;color: white;">L O G I N</h2>
-                        <div class="input-field login-inputs">
-                            <input placeholder="Username" id="username" type="text" class="validate" style="color: white">
+<!--                    <div class="row container">-->
+<!--                        <h2 class="header" style="text-align: center;font-size: 3rem;color: white;">L O G I N</h2>-->
+<!--                        <div class="input-field login-inputs">-->
+<!--                            <input placeholder="Username" id="username" type="text" class="validate" style="color: white">-->
 
-                        </div>
-                        <div class="input-field login-inputs" style="margin-top: 2rem;">
-                            <input placeholder="Password" id="password" type="password" class="validate" style="color: white">
+<!--                        </div>-->
+<!--                        <div class="input-field login-inputs" style="margin-top: 2rem;">-->
+<!--                            <input placeholder="Password" id="password" type="password" class="validate" style="color: white">-->
 
-                        </div>
-                        <a class="waves-effect waves-light" style="margin-left: 25rem;">Not a member ? Create an account</a>
-
-
-                        <a class="waves-effect waves-light btn login-inputs" style="margin-top: 2rem;width: 27rem;height: 3rem;background: black;opacity: 1">S u b m i t</a>
-                        <br>
+<!--                        </div>-->
+<!--                        <a class="waves-effect waves-light" style="margin-left: 25rem;">Not a member ? Create an account</a>-->
 
 
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
+<!--                        <a class="waves-effect waves-light btn login-inputs" style="margin-top: 2rem;width: 27rem;height: 3rem;background: black;opacity: 1">S u b m i t</a>-->
+<!--                        <br>-->
 
 
-                        <br>
+<!--                        <br>-->
+<!--                        <br>-->
+<!--                        <br>-->
+<!--                        <br>-->
+<!--                        <br>-->
+<!--                        <br>-->
 
 
-                    </div>
-                </div>
+<!--                        <br>-->
+
+
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </div>
 
@@ -42,17 +42,39 @@
         <div class="row container">
             <h2 class="header" style="text-align: center;font-size:2rem">U P C O M I N G  &nbsp;  E V E N T S</h2>
                 <div class="row">
-                    <div class="col s1 m4" *ngFor="let exhibition of exhibitions">
+<!--                    <div class="col s1 m4" *ngFor="let exhibition of exhibitions">-->
+<!--                        <div class="card">-->
+<!--                            <div class="card-image waves-effect waves-block waves-light">-->
+<!--                                <img class="activator" src="{{exhibition.image_url}}"  >-->
+<!--                            </div>-->
+<!--                            <div class="card-content">-->
+<!--                                <span class="card-title activator grey-text text-darken-4">{{exhibition.name}}</span>-->
+<!--                                <p style="text-align: right;"><a href="#" style="color: #ffab40">DETAIL</a></p>-->
+<!--                            </div>-->
+<!--                            <div class="card-reveal">-->
+<!--                                <span class="card-title grey-text text-darken-4">{{exhibition.name}}<i class="material-icons right">close</i></span>-->
+<!--                                <p><b>Timings</b></p>-->
+<!--                                <p>05-March to 15-March, 2020</p>-->
+<!--                                <p>09:00 - 17:00 hrs</p>-->
+<!--                                <p><b>Location</b></p>-->
+<!--                                <p>Alexanderplatz, 10178 Berlin</p>-->
+
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    This is hard coded comment this out later-->
+                    <div class="col s1 m4">
                         <div class="card">
                             <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="{{exhibition.image_url}}"  >
+                                <img class="activator" src="../../assets/images/first_event.jpg"  >
                             </div>
                             <div class="card-content">
-                                <span class="card-title activator grey-text text-darken-4">{{exhibition.name}}</span>
+                                <span class="card-title activator grey-text text-darken-4">Berlin Art Festival</span>
                                 <p style="text-align: right;"><a href="#" style="color: #ffab40">DETAIL</a></p>
                             </div>
                             <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-4">{{exhibition.name}}<i class="material-icons right">close</i></span>
+                                <span class="card-title grey-text text-darken-4">Berlin Art Festival<i class="material-icons right">close</i></span>
                                 <p><b>Timings</b></p>
                                 <p>05-March to 15-March, 2020</p>
                                 <p>09:00 - 17:00 hrs</p>
@@ -62,12 +84,30 @@
                             </div>
                         </div>
                     </div>
-
-<!--                    This is hard coded comment this out later-->
                     <div class="col s1 m4">
                         <div class="card">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <img class="activator" src="../../assets/images/second_event.jpg"  >
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">Berlin Art Festival</span>
+                                <p style="text-align: right;"><a href="#" style="color: #ffab40">DETAIL</a></p>
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">Berlin Art Festival<i class="material-icons right">close</i></span>
+                                <p><b>Timings</b></p>
+                                <p>05-March to 15-March, 2020</p>
+                                <p>09:00 - 17:00 hrs</p>
+                                <p><b>Location</b></p>
+                                <p>Alexanderplatz, 10178 Berlin</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s1 m4">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="../../assets/images/third_event.jpg"  >
                             </div>
                             <div class="card-content">
                                 <span class="card-title activator grey-text text-darken-4">Berlin Art Festival</span>

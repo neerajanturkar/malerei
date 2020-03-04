@@ -23,4 +23,7 @@ export class CreatePaintingComponent implements OnInit {
     };
     reader.readAsDataURL(file);
   }
+  submit() {
+    alert('submit called');
+  }
 }

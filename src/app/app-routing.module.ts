@@ -10,9 +10,8 @@ import { ViewPaintingComponent } from './view-painting/view-painting.component';
 const routes: Routes = [
     { path: 'home', component: HomeComponent},
     { path: '', component: HomeComponent},
-    { path: 'event', component: ShowEventsComponent},
+    { path: 'display-event', component: ShowEventsComponent},
     { path: 'create-event', component: CreateEventComponent},
-    { path: 'home', component: HomeComponent},
     { path: 'gallery', component: GalleryComponent},
     { path: 'create-painting', component: CreatePaintingComponent},
     { path: 'view-painting/:id', component: ViewPaintingComponent}
