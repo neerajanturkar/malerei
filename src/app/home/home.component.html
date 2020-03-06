@@ -1,250 +1,41 @@
-<html>
-        <div class="parallax">
-            <div class="login">
-<!--                <h1>L O G I N</h1>-->
-<!--                <div class="section black" style="padding-top: 10rem;opacity: 0.55">-->
 
-<!--                    <div class="row container">-->
-<!--                        <h2 class="header" style="text-align: center;font-size: 3rem;color: white;">L O G I N</h2>-->
-<!--                        <div class="input-field login-inputs">-->
-<!--                            <input placeholder="Username" id="username" type="text" class="validate" style="color: white">-->
-
-<!--                        </div>-->
-<!--                        <div class="input-field login-inputs" style="margin-top: 2rem;">-->
-<!--                            <input placeholder="Password" id="password" type="password" class="validate" style="color: white">-->
-
-<!--                        </div>-->
-<!--                        <a class="waves-effect waves-light" style="margin-left: 25rem;">Not a member ? Create an account</a>-->
+    <div class="parallax">
+        <div class="login">
+        </div>
+    </div>
 
 
-<!--                        <a class="waves-effect waves-light btn login-inputs" style="margin-top: 2rem;width: 27rem;height: 3rem;background: black;opacity: 1">S u b m i t</a>-->
-<!--                        <br>-->
-
-
-<!--                        <br>-->
-<!--                        <br>-->
-<!--                        <br>-->
-<!--                        <br>-->
-<!--                        <br>-->
-<!--                        <br>-->
-
-
-<!--                        <br>-->
-
-
-<!--                    </div>-->
-<!--                </div>-->
+  <div class="section white">
+    <div class="row container">
+      <h2 class="header" style="text-align: center;font-size:2rem">U P C O M I N G  &nbsp;  E V E N T S</h2>
+        <div class="row" >
+          <div class="col s1 m4" *ngFor="let exhibition of exhibitions | slice : 0:3" let i ="index">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{{exhibition.image_url}}"  >
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">{{exhibition.name}}</span>
+                    <p style="text-align: right;"><a href="#" style="color: #ffab40">DETAIL</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">{{exhibition.name}}<i class="material-icons right">close</i></span>
+                    <p><b>Timings</b></p>
+                    <p>05-March to 15-March, 2020</p>
+                    <p>09:00 - 17:00 hrs</p>
+                    <p><b>Location</b></p>
+                    <p>Alexanderplatz, 10178 Berlin</p>
+                </div>
             </div>
         </div>
-
-
-    <div class="section white">
-        <div class="row container">
-            <h2 class="header" style="text-align: center;font-size:2rem">U P C O M I N G  &nbsp;  E V E N T S</h2>
-                <div class="row">
-<!--                    <div class="col s1 m4" *ngFor="let exhibition of exhibitions">-->
-<!--                        <div class="card">-->
-<!--                            <div class="card-image waves-effect waves-block waves-light">-->
-<!--                                <img class="activator" src="{{exhibition.image_url}}"  >-->
-<!--                            </div>-->
-<!--                            <div class="card-content">-->
-<!--                                <span class="card-title activator grey-text text-darken-4">{{exhibition.name}}</span>-->
-<!--                                <p style="text-align: right;"><a href="#" style="color: #ffab40">DETAIL</a></p>-->
-<!--                            </div>-->
-<!--                            <div class="card-reveal">-->
-<!--                                <span class="card-title grey-text text-darken-4">{{exhibition.name}}<i class="material-icons right">close</i></span>-->
-<!--                                <p><b>Timings</b></p>-->
-<!--                                <p>05-March to 15-March, 2020</p>-->
-<!--                                <p>09:00 - 17:00 hrs</p>-->
-<!--                                <p><b>Location</b></p>-->
-<!--                                <p>Alexanderplatz, 10178 Berlin</p>-->
-
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-
-<!--                    This is hard coded comment this out later-->
-                    <div class="col s1 m4">
-                        <div class="card">
-                            <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="../../assets/images/first_event.jpg"  >
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title activator grey-text text-darken-4">Berlin Art Festival</span>
-                                <p style="text-align: right;"><a href="#" style="color: #ffab40">DETAIL</a></p>
-                            </div>
-                            <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-4">Berlin Art Festival<i class="material-icons right">close</i></span>
-                                <p><b>Timings</b></p>
-                                <p>05-March to 15-March, 2020</p>
-                                <p>09:00 - 17:00 hrs</p>
-                                <p><b>Location</b></p>
-                                <p>Alexanderplatz, 10178 Berlin</p>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col s1 m4">
-                        <div class="card">
-                            <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="../../assets/images/second_event.jpg"  >
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title activator grey-text text-darken-4">Berlin Art Festival</span>
-                                <p style="text-align: right;"><a href="#" style="color: #ffab40">DETAIL</a></p>
-                            </div>
-                            <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-4">Berlin Art Festival<i class="material-icons right">close</i></span>
-                                <p><b>Timings</b></p>
-                                <p>05-March to 15-March, 2020</p>
-                                <p>09:00 - 17:00 hrs</p>
-                                <p><b>Location</b></p>
-                                <p>Alexanderplatz, 10178 Berlin</p>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col s1 m4">
-                        <div class="card">
-                            <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="../../assets/images/third_event.jpg"  >
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title activator grey-text text-darken-4">Berlin Art Festival</span>
-                                <p style="text-align: right;"><a href="#" style="color: #ffab40">DETAIL</a></p>
-                            </div>
-                            <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-4">Berlin Art Festival<i class="material-icons right">close</i></span>
-                                <p><b>Timings</b></p>
-                                <p>05-March to 15-March, 2020</p>
-                                <p>09:00 - 17:00 hrs</p>
-                                <p><b>Location</b></p>
-                                <p>Alexanderplatz, 10178 Berlin</p>
-
-                            </div>
-                        </div>
-                    </div>
-<!--                    <div class="col s1 m4">-->
-<!--                        <div class="card">-->
-<!--                            <div class="card-image waves-effect waves-block waves-light">-->
-<!--                                <img class="activator" src="../../assets/images/third_event.jpg"  >-->
-<!--                            </div>-->
-<!--                            <div class="card-content">-->
-<!--                                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>-->
-<!--                                <p><a href="#">This is a link</a></p>-->
-<!--                            </div>-->
-<!--                            <div class="card-reveal">-->
-<!--                                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>-->
-<!--                                <p>Here is some more information about this product that is only revealed once clicked on.</p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-            </div>
         </div>
     </div>
-<<<<<<< HEAD
-</div> -->
-
-<div class="parallax-container">
-  <div class="parallax"><img src="../../assets/images/home-image-1.jpg"></div>
-  <div class="container">
-     <h3>REGISTER</h3>
-    
-      <form [formGroup]="registerForm" (ngSubmit)="onRegister(registerForm)">
-        <mat-form-field >
-          <input matInput placeholder="Enter your name" formControlName="name" required 
-              [ngClass]="{ 'is-invalid': submitted && registerForm.controls.name.errors }">
-          <mat-error *ngIf="submitted && registerForm.controls.name.errors" >
-              <span *ngIf="registerForm.controls.name.errors.required">
-                  Name is required</span>
-          </mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-         <mat-label>Type</mat-label>
-          <mat-select >
-            <mat-option *ngFor="let type of types" [value]="type.typeName">
-              {{ type.typeName }}
-            </mat-option>
-          </mat-select>
-          <mat-error *ngIf="registerForm.get('type').invalid" >
-                Type is required
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Enter your email" formControlName="email" required id="email"
-            [ngClass]="{ 'is-invalid': submitted && registerForm.controls.email.errors }">
-            <mat-error *ngIf="submitted && registerForm.controls.email.errors">
-                <span *ngIf="registerForm.controls.email.errors.required">Email is required.</span>
-                <span *ngIf="registerForm.controls.email.errors.email">Email must be a valid email address</span>
-            </mat-error>
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"
-          formControlName="password" required  [ngClass]="{ 'is-invalid': submitted && registerForm.controls.password.errors }">
-          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
-          <mat-error *ngIf="submitted && registerForm.controls.password.errors">
-              <span *ngIf="registerForm.controls.password.errors.required">
-                  Password is required.
-              </span>
-              <span *ngIf="registerForm.controls.password.errors.minlength">Password must be atleast 4 characters.</span>
-          </mat-error>
-        </mat-form-field>
-      
-       <mat-form-field>
-          <input matInput placeholder="Enter your Confirm password" [type]="hide ? 'password' : 'text'"
-              formControlName="confirmPassword" required  
-              [ngClass]="{ 'is-invalid': submitted && registerForm.controls.confirmPassword.errors }">
-          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
-          <mat-error *ngIf="submitted && registerForm.controls.confirmPassword.errors">
-              <span *ngIf="registerForm.controls.confirmPassword.errors.required">
-                  Confirm Password is required.
-              </span>
-              <span *ngIf="registerForm.controls.confirmPassword.errors.required">Confrim password doesn't match with password.</span>
-          </mat-error>
-        </mat-form-field>
-       <div>
-          <button type="submit" mat-raised-button class="btn-login col-sm-2 mt-2" 
-              id="button" aria-label="button">
-              SUBMIT
-          </button>
-          <p class="mt-3">New User? <a routerLink="/login" class="ml-2"><u> Register here</u></a></p>
-        </div>
-      </form>
-    </div>
-</div>
-<div class="section white">
-  <div class="row container">
-    <h3>Upcoming Events</h3>
-    <div class="row">
-      <div class="col s3 m4" *ngFor="let exhibition of exhibitions">
-        <div class="card" (click)='onEventPage()'>
-          <div class="card-image"><img [src]="exhibition.image_url" [alt]="exhibition.name">
-            
-            <span class="card-title">{{exhibition.name}}</span>
-           <span>{{exhibition.time && exhibition.location}}</span> 
-          </div>
-        </div>
-      </div>
-    </div>
-    <h5 class="text-center">MORE</h5>
   </div>
-</div>
-<div class="parallax-container">
-  <div class="parallax"><img src="images/parallax2.jpg"></div>
-</div>
-=======
-    <div class="section grey">
-        <div class="row container">
-            <h2 class="header" style="text-align: center;font-size:2rem">A B O U T</h2>
-            <p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
-        </div>
-    </div>
+  <div class="section grey">
+      <div class="row container">
+          <h2 class="header" style="text-align: center;font-size:2rem">A B O U T</h2>
+          <p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
+      </div>
+  </div>
 
-</html>
->>>>>>> e1126d5978e2737643f545a730c44155a36fd2a3
+

@@ -25,7 +25,8 @@ import {
   MatNativeDateModule,
   MatDatepickerModule,
   MatSnackBarModule,
-  MatSelectModule
+  MatSelectModule,
+  MatIconModule
 } from "@angular/material";
 
 
@@ -39,6 +40,7 @@ import { RegisterComponent } from './register/register.component';
 import { GalleryService } from './gallery.service';
 import { ActivatedRoute } from "@angular/router";
 import { HttpClient } from 'selenium-webdriver/http';
+import { LoginComponent } from './login/login.component';
 
 // import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
@@ -54,7 +56,8 @@ import { HttpClient } from 'selenium-webdriver/http';
     GalleryCardComponent,
     AppFooterComponent,
     DetailEventComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
     
   
   ],
@@ -82,6 +85,7 @@ import { HttpClient } from 'selenium-webdriver/http';
     MatNativeDateModule,
     MatDialogModule,
     FormsModule,
+    MatIconModule,
     RxReactiveFormsModule
   ],
   providers: [GalleryService],

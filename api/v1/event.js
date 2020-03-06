@@ -58,7 +58,8 @@ router.post('/', multer({ storage: storage }).single("image"), ( req, res, next)
         to: req.body.to,
         time: req.body.time,
         location: req.body.location,
-        image_url: url + "/images/" + req.file.filename
+        image_url: url + "/images/" + req.file.filename,
+        
     });
 
     exhibition.save().then( createdEvent => {

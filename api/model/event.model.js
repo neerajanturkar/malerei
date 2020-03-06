@@ -9,7 +9,7 @@ const eventSchema = mongoose.Schema({
     ticket_information: [
         {
             ticket_type: {type: String},
-            price: {type: Number},
+            price: {type: String},
         }
     ]
 });

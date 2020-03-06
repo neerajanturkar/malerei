@@ -37,7 +37,11 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-  onNoClick(): void {
+  onRegister(registerForm){
+    this.onClose();
+  }
+
+  onClose() {
     this.dialogBox.close();
   }
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import {MatDialogConfig, MatDialog,  MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import { RegisterComponent } from '../register/register.component';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-navbar',
@@ -16,12 +17,20 @@ export class NavbarComponent implements OnInit {
   }
 
   onRegiterDialog(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "40%";
+    this.dialog.open(RegisterComponent, dialogConfig);
+  }
+
+  onLoginDialog(){
     
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "50%";
-    this.dialog.open(RegisterComponent, dialogConfig);
+    dialogConfig.width = "40%";
+    this.dialog.open(LoginComponent, dialogConfig);
   }
 
 }

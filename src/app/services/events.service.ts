@@ -48,10 +48,10 @@ export class EventsService {
   }
 
   getEventById(id: string) {
-    return this.http.get<{ _id: string, name: string, from: string, to: string, location: string, time: string, image_url: string }>(
+    // return this.http.get<{ _id: string, name: string, from: string, to: string, location: string, time: string, image_url: string }>(
   
-    }
-      getPost(id: string) {
+    // }
+    //   getPost(id: string) {
     return this.http.get<{ _id: string, name: string, from: Date, to: Date, location: string, time: string, image_url: string }>(
       "http://localhost:5000/api/v1/events/" + id
     );
@@ -69,6 +69,7 @@ export class EventsService {
     postData.append("time", time);
     postData.append("location", location);
     postData.append("image", image, name);
+    
     this.http
       .post<{ message: string; exhibition: Exhibition }>(
         "http://localhost:5000/api/v1/events/",
@@ -82,7 +83,8 @@ export class EventsService {
           to: to,
           time: time,
           location: location,
-          image_url: responseData.exhibition.image_url
+          image_url: responseData.exhibition.image_url,
+         
         };
         this.exhibitions.push(post);
                 

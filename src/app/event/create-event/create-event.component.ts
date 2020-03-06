@@ -6,6 +6,18 @@ import { mimeType } from "./mime-type.validator";
 
 import { EventsService } from '../../services/events.service';
 
+export interface PeriodicElement {
+  position: number;
+  ticket_type: string;
+  price: string;
+}
+const ELEMENT_DATA : PeriodicElement[] =  [
+  {position: 1, ticket_type: 'Adult', price: '10'},
+  {position: 2, ticket_type: 'Child', price: '5'},
+  {position: 3, ticket_type: 'Student', price: '7'},
+  {position: 4, ticket_type: 'Group', price: '8'}
+]
+
 @Component({
   selector: 'app-create-event',
   templateUrl: './create-event.component.html',
@@ -24,6 +36,10 @@ export class CreateEventComponent implements OnInit {
   private mode = "create";
   private eventId: string;
 
+  displayedColumns: string[] = ['position', 'ticket_type', 'price'];
+  
+  dataSource = ELEMENT_DATA;
+
   constructor(public eventService: EventsService,
     public route: ActivatedRoute) { }
 
@@ -39,7 +55,8 @@ export class CreateEventComponent implements OnInit {
       image: new FormControl(null, {
         validators: [Validators.required],
         asyncValidators: [mimeType]
-      })
+      }),
+      
     });
     // this.route.paramMap.subscribe((paramMap: ParamMap) => {
     //   console.log(paramMap);

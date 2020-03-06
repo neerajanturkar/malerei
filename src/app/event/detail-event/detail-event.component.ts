@@ -3,18 +3,17 @@ import { EventsService } from 'src/app/services/events.service';
 import { ActivatedRoute, ParamMap } from "@angular/router";
 import { Exhibition } from '../../model/event.model';
 import { Subscription } from 'rxjs';
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-}
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079},
-  {position: 2, name: 'Helium', weight: 4.0026},
-  {position: 3, name: 'Lithium', weight: 6.941},
-  {position: 4, name: 'Beryllium', weight: 9.0122},
-  {position: 5, name: 'Boron', weight: 10.811}
+export interface PeriodicElement {
+  position: number;
+  ticket_type: string;
+  price: string;
+}
+const ELEMENT_DATA : PeriodicElement[] =  [
+  {position: 1, ticket_type: 'Adult', price: '10'},
+  {position: 2, ticket_type: 'Child', price: '5'},
+  {position: 3, ticket_type: 'Student', price: '7'},
+  {position: 4, ticket_type: 'Group', price: '8'}
 ]
 
 @Component({
@@ -28,7 +27,8 @@ export class DetailEventComponent implements OnInit {
   private eventId: string;
   private postsSub: Subscription;
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['position', 'ticket_type', 'price'];
+  
   dataSource = ELEMENT_DATA;
 
   constructor(

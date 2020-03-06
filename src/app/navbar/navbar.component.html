@@ -1,6 +1,5 @@
 <div class="navbar-fixed">
   <nav>
-
     <div class="nav-wrapper">
       <a href="#!" class="brand-logo">M A L E R E I</a>
       <ul class="right hide-on-med-and-down">
@@ -10,15 +9,17 @@
         <li>
           <a class="nav-link" routerLink="/gallery" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">G A L L E R Y</a>
         </li>
-        <li>
-          <a class="nav-link" routerLink="/register" 
-            routerLinkActive="active" 
-            [routerLinkActiveOptions]="{exact:true}" (click)="onRegiterDialog()">
-            Register
-          </a>
+        <li class="nav-item">
+          <a href="#" class="nav-link" (click) = "onRegiterDialog()"
+          routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">S I G N I N</a>
+        </li>
+        <li class="nav-item" >
+            <a href="#" class="nav-link" (click) = "onRegiterDialog()"
+              routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">S I G N U P</a>
         </li>
       </ul>
     </div>
-
+    
   </nav>
 </div>
+<!-- *ngIf="!userIsAuthenticated == linkDisable" -->
