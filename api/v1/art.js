@@ -84,7 +84,7 @@ function addBid(req, res, next) {
 
 
 router.post('/', multer({ storage: storage }).single("image"), ( req, res, next) => {
-    console.log()
+    console.log(req.body)
     const url = req.protocol + '://' + req.get("host");
     var art = new Art({
 
@@ -101,7 +101,7 @@ router.post('/', multer({ storage: storage }).single("image"), ( req, res, next)
 
 
     });
-
+    console.log(art);
     art.save().then( createdArt => {
         res.status(201).json({
             message: "Art added successfully",

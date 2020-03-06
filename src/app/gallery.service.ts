@@ -31,16 +31,10 @@ export class GalleryService {
     .toPromise()
   }
 
-  createArt(name: string, location: string, time: string, from:string, to:string, image: File){
+  createArt(data: FormData) {
     let headers = new HttpHeaders({'Content-Type':'application/json'});
-    const postData = new FormData();
-    postData.append("name", name);
-    postData.append("from", from);
-    postData.append("to", to);
-    postData.append("time", time);
-    postData.append("location", location);
-    postData.append("image", image, name);
-    this.http.post(this.apiUrl+"/arts", postData).toPromise();
+    console.log(data);
+    return this.http.post(this.apiUrl + 'arts', data, {headers: headers}).toPromise();
 
   }
 

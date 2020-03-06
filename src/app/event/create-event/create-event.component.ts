@@ -91,6 +91,7 @@ export class CreateEventComponent implements OnInit {
     }
     this.isLoading = true;
     if (this.mode === "create") {
+      console.log(this.form.value.image);
       this.eventService.addEvent(
         this.form.value.name,
         this.form.value.from,

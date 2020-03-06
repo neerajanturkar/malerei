@@ -6,7 +6,7 @@
     <form [formGroup]="form" (submit)="onSaveEvent()" *ngIf="!isLoading">
     <div class="row">
         <div class="col s6">
-          <mat-form-field >
+          <mat-form-field>
             <mat-label>Event name</mat-label>
             <input matInput type="text" formControlName="name" placeholder="Event name">
             <mat-error *ngIf="form.get('name').invalid">Please enter a event name.</mat-error>
