@@ -2,74 +2,60 @@
   <span class="fill-remaining-space">S I G N U P</span>
   <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabindex="-1"><mat-icon>clear</mat-icon></button>
 </mat-toolbar>    
+<!-- <mat-spinner *ngIf="isLoading"></mat-spinner> -->
      <br><br>
-        <form [formGroup]="registerForm" (ngSubmit)="onRegister(registerForm)">
-          <mat-form-field >
-            <input matInput placeholder="Enter your name" formControlName="name" required 
-                [ngClass]="{ 'is-invalid': submitted && registerForm.controls.name.errors }">
-            <mat-error *ngIf="submitted && registerForm.controls.name.errors" >
-                <span *ngIf="registerForm.controls.name.errors.required">
-                    Name is required</span>
-            </mat-error>
-            <!-- <mat-error *ngIf="form.get('name').invalid">Please enter a event name.</mat-error> -->
-          </mat-form-field>
-          <br>
-          <mat-form-field>
-          <mat-label>Type</mat-label>
-            <mat-select >
-              <mat-option *ngFor="let type of types" [value]="type.typeName">
-                {{ type.typeName }}
-              </mat-option>
-            </mat-select>
-            <mat-error *ngIf="registerForm.get('type').invalid" >
-                  Type is required
-            </mat-error>
-          </mat-form-field>
-          <br>
-          <mat-form-field>
-              <input matInput placeholder="Enter your email" formControlName="email" required id="email"
-              [ngClass]="{ 'is-invalid': submitted && registerForm.controls.email.errors }">
-              <mat-error *ngIf="submitted && registerForm.controls.email.errors">
-                  <span *ngIf="registerForm.controls.email.errors.required">Email is required.</span>
-                  <span *ngIf="registerForm.controls.email.errors.email">Email must be a valid email address</span>
-              </mat-error>
-          </mat-form-field>
-          <br>
-          <mat-form-field>
-              <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"
-            formControlName="password" required  [ngClass]="{ 'is-invalid': submitted && registerForm.controls.password.errors }">
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-            <mat-error *ngIf="submitted && registerForm.controls.password.errors">
-                <span *ngIf="registerForm.controls.password.errors.required">
-                    Password is required.
-                </span>
-                <span *ngIf="registerForm.controls.password.errors.minlength">Password must be atleast 4 characters.</span>
-            </mat-error>
-          </mat-form-field>
-          <br>
-          <mat-form-field>
-            <input matInput placeholder="Enter your Confirm password" [type]="hide ? 'password' : 'text'"
-                formControlName="confirmPassword" required  
-                [ngClass]="{ 'is-invalid': submitted && registerForm.controls.confirmPassword.errors }">
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-            <mat-error *ngIf="submitted && registerForm.controls.confirmPassword.errors">
-                <span *ngIf="registerForm.controls.confirmPassword.errors.required">
-                    Confirm Password is required.
-                </span>
-                <span *ngIf="registerForm.controls.confirmPassword.errors.required">Confrim password doesn't match with password.</span>
-            </mat-error>
-          </mat-form-field>
-          <br>
-        <div>
-            <button type="submit" mat-raised-button class="btn-login col-sm-2 mt-2" 
-                id="button" aria-label="button">
-                SUBMIT
-            </button>
-            <p class="mt-3">New User? <a routerLink="/login" class="ml-2"><u> Register here</u></a></p>
-          </div>
-        </form>
+     <form #userForm="ngForm"  (submit)="onRegister(userForm)">
+      <div class="form-group">
+        <input type="text" #name="ngModel" [class.is-invalid]="name.invalid && name.touched"
+          class="form-control" name="name" placeholder="Enter name"
+          [(ngModel)]="userModel.name" required>
+          <span class="text-danger" *ngIf="name.errors?.required && name.touched">Name is required</span>     
+      </div>
+
+      <div class="form-group">
+        <select (blur)="validateUserType(type.value)" (change)="validateUserType(type.value)"
+            name="type" class="custom-select" [(ngModel)]="userModel.type"
+            #type="ngModel" [class.is-invalid]="userTypeHasError && type.touched" required>
+            <option value="select">Select user type</option>
+            <option *ngFor="let userType of userTypes">{{ userType }}</option>
+        </select>
+        <span class="text-danger" [class.d-none]="!userTypeHasError || type.untouched">Please choose user type</span>
+      </div>
+    
+      <div class="from-group ">
+        <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email"
+            [class.is-invalid]="email.invalid && email.touched" #email="ngModel" 
+            [(ngModel)]="userModel.email" required
+            pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$">
+        <span class="text-danger" *ngIf="email.errors?.required && email.touched">Email is required</span>
+        <span class="text-danger" *ngIf="email.errors?.pattern && email.touched">Email is invalid</span> 
+      </div>
+
+      <div class="form-group ">
+        <input type="password" #password="ngModel" [class.is-invalid]="password.invalid && password.touched"
+            class="form-control" name="password" placeholder="Enter password"
+            [(ngModel)]="userModel.password" required>
+        <span class="text-danger" [class.d-none]="password.valid || password.untouched">password is required</span>
+      </div>
+
+      <div class="form-group ">
+          <input type="password" #confirmPassword="ngModel" [class.is-invalid]="confirmPassword.invalid && confirmPassword.touched"
+              class="form-control" name="confirmPassword" placeholder="Enter confirm password"
+              [(ngModel)]="userModel.confirmPassword" required>
+          <span class="text-danger" [class.d-none]="confirmPassword.valid || confirmPassword.untouched">Confirm Password is required</span>
+      </div>
+
+      <div class="form-group ">
+        <button type="submit" mat-raised-button color="primary" >
+            Sign Up
+        </button>
+        <div class="col-sm-6 col-md-4">
+            <p class="mt-3 ">Already registered user <a routerLink="/login"><u> Login here</u></a></p>
+        </div>
+    </div>
+    </form>
+
+
+
+     
       

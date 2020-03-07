@@ -24,22 +24,24 @@ router.post('/register', (req, res, next) => {
     //     }   
     // });
 
-    console.log("inside register")
+    //console.log("inside register")
    // bcrypt.hash(req.body.password, 10).then(hash => {
     //  console.log("inside bcrypt")
     const user = new User(req.body);
     user.save()
       .then( result => {
         res.status(200).json({
-          message: 'user created',
+          message: 'User account has been created successfully. Kindly Sign In.. ',
           result: result
         });
+        console.log(result)
       })
       .catch(err => {
         res.status(500).json({
           error: err
         });
       });
+      
 });
 
 

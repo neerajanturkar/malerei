@@ -1,4 +1,4 @@
-<div class="navbar-fixed">
+<!-- <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper">
       <a href="#!" class="brand-logo">M A L E R E I</a>
@@ -10,7 +10,7 @@
           <a class="nav-link" routerLink="/gallery" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">G A L L E R Y</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link" (click) = "onRegiterDialog()"
+          <a href="#" class="nav-link" (click) = "onLoginDialog()"
           routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">S I G N I N</a>
         </li>
         <li class="nav-item" >
@@ -21,5 +21,33 @@
     </div>
     
   </nav>
-</div>
-<!-- *ngIf="!userIsAuthenticated == linkDisable" -->
+</div> -->
+<nav class="navbar navbar-expand-sm" id="main-nav" role="navigation" aria-label="Main">
+  <a href="#" class="navbar-brand">M A L E R E I</a>
+  <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarMenu" >
+      <ul class="navbar-nav ml-auto" >
+        <li>
+          <a class="nav-link" routerLink="/display-event" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" >E V E N T S</a>
+        </li>
+        <li>
+          <a class="nav-link" routerLink="/gallery" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">G A L L E R Y</a>
+        </li>
+        <li class="nav-item" *ngIf="!userIsAuthenticated == linkDisable">
+          <a href="#" class="nav-link" (click) = "onLoginDialog()"
+          routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">S I G N I N</a>
+        </li>
+        <li class="nav-item" *ngIf="!userIsAuthenticated == linkDisable" >
+            <a href="#" class="nav-link" (click) = "onRegiterDialog()"
+              routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">S I G N U P</a>
+        </li>          
+      </ul>
+      <ul class="nav navbar-nav " *ngIf="userIsAuthenticated">
+          <button class="btn" (click)="onLogout()">Logout </button>
+      </ul>
+  </div>
+  
+</nav>
+<router-outlet></router-outlet>

@@ -3,6 +3,8 @@ import { Router } from "@angular/router";
 import {MatDialogConfig, MatDialog,  MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import { RegisterComponent } from '../register/register.component';
 import { LoginComponent } from '../login/login.component';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,26 +13,42 @@ import { LoginComponent } from '../login/login.component';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router: Router,public dialog: MatDialog) { }
+  userIsAuthenticated: boolean = false;
+  private authListenerSubs: Subscription;
+  linkDisable = true;
+
+  constructor(private router: Router,public dialog: MatDialog, private authService: AuthService) { }
 
   ngOnInit() {
+    this.userIsAuthenticated = this.authService.getIsAuth();
+    this.authListenerSubs = this.authService
+      .getAuthStatusListener()
+      .subscribe(isAuthenticated => {
+        this.userIsAuthenticated = isAuthenticated;
+      });
   }
 
   onRegiterDialog(){
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "40%";
+    dialogConfig.width = "30%";
     this.dialog.open(RegisterComponent, dialogConfig);
   }
 
   onLoginDialog(){
-    
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "40%";
+    dialogConfig.width = "30%";
     this.dialog.open(LoginComponent, dialogConfig);
   }
 
+  onLogout(){
+    this.authService.logout();
+  }
+
+  ngOnDestroy(){
+    this.authListenerSubs.unsubscribe();
+  }
 }

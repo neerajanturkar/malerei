@@ -3,7 +3,7 @@ import { NgModule , CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AppRoutingModule, routingComponents } from "./app-routing.module";
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { EventComponent } from './event/event.component';
@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import {FormsModule, ReactiveFormsModule } from "@angular/forms";
 import {MatDialogModule} from '@angular/material/dialog';
+
 import {
   MatInputModule,
   MatCardModule,
@@ -29,8 +30,6 @@ import {
   MatIconModule
 } from "@angular/material";
 
-
-
 import { AppHeaderComponent } from './app-header/app-header.component';
 import { GalleryCardComponent } from './gallery-card/gallery-card.component';
 import { AppFooterComponent } from './app-footer/app-footer.component';
@@ -41,6 +40,7 @@ import { GalleryService } from './gallery.service';
 import { ActivatedRoute } from "@angular/router";
 import { HttpClient } from 'selenium-webdriver/http';
 import { LoginComponent } from './login/login.component';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 // import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
@@ -57,7 +57,7 @@ import { LoginComponent } from './login/login.component';
     AppFooterComponent,
     DetailEventComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
     
   
   ],
@@ -86,11 +86,13 @@ import { LoginComponent } from './login/login.component';
     MatDialogModule,
     FormsModule,
     MatIconModule,
-    RxReactiveFormsModule
+    RxReactiveFormsModule,
+    HttpClientModule,
+    
   ],
-  providers: [GalleryService],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true},GalleryService],
   bootstrap: [AppComponent],
-  entryComponents: [RegisterComponent],
+  entryComponents: [RegisterComponent, LoginComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
