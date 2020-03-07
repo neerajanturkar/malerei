@@ -5,6 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {MatDialogModule, MatSnackBarModule} from '@angular/material';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -12,7 +13,7 @@ describe('NavbarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [  RouterModule, RouterTestingModule ,HttpClientTestingModule  ],
+      imports: [  RouterModule, RouterTestingModule , HttpClientTestingModule, MatDialogModule, MatSnackBarModule ],
       declarations: [ NavbarComponent ]
     })
     .compileComponents();

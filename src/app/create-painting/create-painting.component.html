@@ -1,65 +1,70 @@
-<html>
-  <head>
-    
-  </head>
-  <body>
-<!--      <app-header></app-header>-->
-      <h1>Create Painting</h1>
+    <h1>Create Painting</h1>
       <div class="row">
         <div class="col s6">
 
           <div class="create_painiting_form">
-              <form [formGroup]="form" (submit)="submitArt()">
-            <div class="input-field">
-              <!-- <label for="title" class="form-label">Title</label> -->
-              <input id="title" type="text" placeholder="Title" class="validate" required="true" formControlName="title">
-            </div>
-            <div class="input-field">
-              <!-- <label for="artist" class="form-label">Artist</label> -->
-              <input id="artist" placeholder="Artist" type="text" class="validate" formControlName="artist">
-            </div>
-            <label class="form-label-large">Details</label>
-            <div class="input-field" style="margin-left: 2rem;">
-                <!-- <label for="dimension" class="form-label">Dimenstion</label> -->
-                <input id="dimension" placeholder="Dimenstion (Length X Breadth) in cm " type="text" class="validate" formControlName="dimension" >
-            </div>
-           
-            <div class="input-field" style="margin-left: 2rem;">
-                <!-- <label for="dimension" class="form-label">Dimenstion</label> -->
-                <input id="type" placeholder="Type" type="text" class="validate" formControlName="type">
-            </div>
-            <div class="input-field" style="margin-left: 2rem;">
-                <!-- <label for="dimension" class="form-label">Dimenstion</label> -->
-                <input id="location" placeholder="Location" type="text" class="validate" formControlName="location">
-            </div>
-            <label class="form-label-large">Bid</label>
-            <div class="input-field" style="margin-left: 2rem;margin-top: 1rem;">
-                <label for="dimension" class="form-label">Expiry</label>
-                <input id="expiry" placeholder="Expiry" type="date" class="datepicker" formControlName="expiry">
-            </div>
-            <div class="input-field" style="margin-left: 2rem;">
-                <!-- <label for="dimension" class="form-label">Dimenstion</label> -->
-                <input id="starting_price" placeholder="Starting Price (in €)" type="text" class="validate" formControlName="starting_price">
-            </div>
-            
+              <form class="example-form" [formGroup]="form" (submit)="submitArt()">
+                  <mat-form-field class="example-full-width">
+                      <mat-label>Name</mat-label>
+                      <input matInput placeholder="Give a name to your painting" formControlName="title">
+                  </mat-form-field>
 
-            <div class="btn-container">
+                  <mat-form-field class="example-full-width">
+                      <mat-label>Artist</mat-label>
+                      <input matInput placeholder="Artist name" formControlName="artist">
+                  </mat-form-field>
 
-              <a class="waves-effect waves-light btn-small" style="margin-left:2rem;margin-right:2rem;background: darkolivegreen;">Clear</a>
-              
-              
-              <a class="waves-effect waves-light btn-small" style="background: darkolivegreen;" type="submit" (click)="submitArt()">Submit</a>
+                  <label class="form-label-large">Details</label><br>
+                  <mat-form-field class="example-full-width-padding">
+                      <mat-label>Dimenstion</mat-label>
+                      <input matInput placeholder="Dimension (Length X Breadth) in cms" formControlName="dimension">
+                  </mat-form-field>
 
-            </div>
-          </form>
+                  <mat-form-field class="example-full-width-padding">
+                      <mat-label>Location</mat-label>
+                      <input matInput placeholder="Location" formControlName="location">
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width-padding">
+                      <mat-label>Type</mat-label>
+                      <input matInput placeholder="Type" formControlName="type">
+                  </mat-form-field>
+
+                  <label class="form-label-large">Bid</label>
+
+                  <mat-form-field class="example-full-width-padding">
+                      <mat-label>Expiry</mat-label>
+                      <input matInput [matDatepicker]="picker1" placeholder="Expiry" formControlName="expiry">
+                      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                      <mat-datepicker #picker1></mat-datepicker>
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width-padding">
+                      <mat-label>Starting Price</mat-label>
+                      <input matInput placeholder="Starting Price" formControlName="starting_price">
+                  </mat-form-field>
+                  <div class="btn-container">
+                      <button mat-raised-button style="background-color: #ffab40; color: white;margin-right: 1rem">Clear</button>
+                      <button mat-raised-button style="background-color: darkolivegreen; color: white">Submit</button>
+                  </div>
+              </form>
           </div>
+
+
+
+
+
+
+
+
+
 
         </div>
         
         <div class="col s6">
             <div class="upload-image">
                
-                <label class="btn" for="uploadedhere" style="background-color: darkolivegreen;margin-left: 2rem;">Upload Picture</label>
+                <label class="btn" for="uploadedhere" style="background-color: darkolivegreen;margin-left: 2rem;color: white">Upload Picture</label>
                 <input type="file" id="uploadedhere" style="display: none;" (change)="uploadPicture($event)">
                    
               
@@ -81,7 +86,3 @@
         </div>
         
       </div>
-<!--      <app-footer></app-footer>-->
-
-  </body>
-</html>

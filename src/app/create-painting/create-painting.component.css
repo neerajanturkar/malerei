@@ -29,3 +29,22 @@ body::after{ content:''; display:block; height:100px; }
     text-align: right;
 }
 
+.example-full-width {
+    width: 100%;
+}
+.example-full-width-padding {
+    margin-left: 10%;
+    width: 90%;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label{
+    color: darkolivegreen;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple{
+    background-color: darkolivegreen;
+}
+
+::ng-deep .mat-form-field-underline .ng-tns-c4-0 .ng-star-inserted{
+    background-color: darkolivegreen;
+}

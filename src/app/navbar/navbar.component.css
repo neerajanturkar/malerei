@@ -5,7 +5,7 @@
 .nav-links {
     text-decoration: none;
     color: #fff;
-    font-size: 1rem;
+    font-size: unset;
     margin-right: 2rem;
 }
 .nav-main {
@@ -25,15 +25,15 @@
 }
 a.nav-link {
     color: white;
-    font-size: 20px;
+    font-size: unset;
 }
 .navbar-brand{
     color: white;
-    font-size: 25px;
+    font-size: unset;
 }
 .nav-item a{
     color: white;
-    font-size: 20px;
+    font-size: unset;
 }
 .active{
     color: #ffd949!important;

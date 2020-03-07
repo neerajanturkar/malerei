@@ -7,7 +7,7 @@ import {RouterModule} from '@angular/router';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatDatepickerModule, MatNativeDateModule} from '@angular/material';
+import {MatDatepickerModule, MatNativeDateModule, MatTableModule} from '@angular/material';
 
 describe('CreateEventComponent', () => {
   let component: CreateEventComponent;
@@ -21,6 +21,7 @@ describe('CreateEventComponent', () => {
         HttpClientTestingModule,
         ReactiveFormsModule,
         MatDatepickerModule,
+        MatTableModule,
         MatNativeDateModule],
       declarations: [ CreateEventComponent ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

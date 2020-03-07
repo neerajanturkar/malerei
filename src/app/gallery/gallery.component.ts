@@ -12,7 +12,7 @@ export class GalleryComponent implements OnInit {
 
   constructor(private galleryService: GalleryService,
     private router: Router) { }
-  title : string;
+  title: string;
   detail: string;
   image: string;
   image1: string;
@@ -36,15 +36,13 @@ export class GalleryComponent implements OnInit {
       this.arts = data;
       console.log(this.arts);
     });
-    // this.tiles = [
-    //   {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
-    //   {text: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    //   {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-    //   {text: 'Four', cols: 1, rows: 1, color: '#DDBDF1'},
-    //   {text: 'five', cols: 1, rows: 1, color: '#DDBDF1'},
-    //   {text: 'five', cols: 1, rows: 1, color: '#DDBDF1'},
-    //   {text: 'seven', cols: 1, rows: 1, color: '#DDBDF1'},
-    // ];
+  }
+  viewPainting(event) {
+    console.log(event.target.parentElement.id);
+    this.router.navigate(['/view-painting/' + event.target.parentElement.id]);
+  }
+  createPainting(event) {
+    this.router.navigate(['/create-painting']);
   }
 
 }

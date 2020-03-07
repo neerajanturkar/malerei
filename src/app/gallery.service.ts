@@ -32,9 +32,8 @@ export class GalleryService {
   }
 
   createArt(data: FormData) {
-    let headers = new HttpHeaders({'Content-Type':'application/json'});
-    console.log(data);
-    return this.http.post(this.apiUrl + 'arts', data, {headers: headers}).toPromise();
+
+    return this.http.post(this.apiUrl + 'arts', data).toPromise();
 
   }
 

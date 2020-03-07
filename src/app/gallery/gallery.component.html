@@ -80,29 +80,27 @@
                     >
 
                 <mat-card class="example-card">
-                    <img mat-card-image src="../../assets/images/card-image-1.jpg" alt="Photo of a Shiba Inu">
+                    <img mat-card-image src="{{art.image_url}}" alt="Photo of a Shiba Inu">
                     <mat-card-content>
                         <table>
                             <tr>
                                 <td><span class="card-content-label-black">Artist</span></td>
-                                <td><span class="card-content-label-grey">{{art.artist}}</span></td>
+                                <td><span class="card-content-label-grey">: {{art.artist}}</span></td>
                             </tr>
                             <tr>
                                 <td><span class="card-content-label-black">Current Bid</span></td>
-                                <td><span class="card-content-label-grey">{{art.current_bid}} €</span></td>
+                                <td><span class="card-content-label-grey">: {{art.curr_bid}} €</span></td>
                             </tr>
                             <tr>
                                 <td><span class="card-content-label-black">Expiry</span></td>
-                                <td><span class="card-content-label-grey">{{expiry | date:'mediumDate'}} </span></td>
+                                <td><span class="card-content-label-grey">: {{art.expiry | date:'mediumDate'}} </span></td>
                             </tr>
 
 
                         </table>
+                        <button mat-button class="bid-btn" id="{{art._id}}" (click)="viewPainting($event);">BID</button>
                     </mat-card-content>
-                    <mat-card-actions>
 
-                        <button mat-button>BID</button>
-                    </mat-card-actions>
                 </mat-card>
 <!--                <mat-card class="example-card">-->
 <!--                    <img mat-card-image src="../../assets/images/card-image-1.jpg" alt="Photo of a Shiba Inu">-->
@@ -134,7 +132,7 @@
 <!--            </gallery-card>-->
 <!--          </div>-->
 
-            <button mat-fab aria-label="Example icon-button with a heart icon" style="background-color: #ffffff;position: fixed;bottom: 3rem;right: 3rem;">
+            <button mat-fab aria-label="Example icon-button with a heart icon" (click)="createPainting($event);" style="background-color: #ffffff;position: fixed;bottom: 3rem;right: 3rem;">
                 <mat-icon style="color:#ffab40">add</mat-icon>
             </button>
 
