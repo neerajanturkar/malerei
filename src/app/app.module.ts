@@ -23,8 +23,9 @@ import {
   MatExpansionModule,
   MatProgressSpinnerModule,
   MatNativeDateModule,
-  MatDatepickerModule
-} from "@angular/material";
+  MatDatepickerModule,
+  MatMenuModule, MatGridListModule,MatIconModule
+} from '@angular/material';
 
 
 
@@ -73,6 +74,9 @@ import { HttpClient } from 'selenium-webdriver/http';
     MatDatepickerModule,
     MatNativeDateModule,
     MatDialogModule,
+    MatMenuModule,
+    MatGridListModule,
+    MatIconModule,
   ],
   providers: [GalleryService],
   bootstrap: [AppComponent],

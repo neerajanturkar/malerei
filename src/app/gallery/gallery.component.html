@@ -1,39 +1,70 @@
 <html>
   <body>
+    <mat-grid-list cols="2">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <div class="search_box">
+                <div class="search">
+                    <mat-form-field class="example-form-field">
 
-<!--    <app-header></app-header>-->
-    <div class="search_box">
-       <div class="search">         
-             <input placeholder="Search by Artist or Location" type="text"/>       
-       </div>
-       <div class="art_type_filter">
-            <label style="color: black;">
-              <input type="checkbox"/>
-              <span style="margin-right: 2rem;">Oil</span>
-            </label>
-            <label style="color: black;">
-              <input type="checkbox"/>
-              <span style="margin-right: 2rem;">Watercolor</span>
-            </label>
-            <label style="color: black;">
-              <input type="checkbox" />
-              <span style="margin-right: 2rem;">Pastel</span>
-            </label>
-            <label style="color: black;">
-              <input type="checkbox"/>
-              <span style="margin-right: 2rem;">Acrylic</span>
-            </label>
-            <label style="color: black;">
-              <input type="checkbox"/>
-              <span style="margin-right: 2rem;">Spray</span>
-            </label>
-            <label style="color: black;">
-              <input type="checkbox"/>
-              <span style="margin-right: 2rem;">Ink Wash</span>
-            </label>
-           
-         </div>
-    </div>
+                        <input matInput type="text" [(ngModel)]="value" placeholder="Search by Artist or Location">
+                        <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+                <div class="art_type_filter">
+                    <label style="color: black;">
+                        <input type="checkbox"/>
+                        <span style="margin-right: 2rem;">Oil</span>
+                    </label>
+                    <label style="color: black;">
+                        <input type="checkbox"/>
+                        <span style="margin-right: 2rem;">Watercolor</span>
+                    </label>
+                    <label style="color: black;">
+                        <input type="checkbox" />
+                        <span style="margin-right: 2rem;">Pastel</span>
+                    </label>
+                    <label style="color: black;">
+                        <input type="checkbox"/>
+                        <span style="margin-right: 2rem;">Acrylic</span>
+                    </label>
+                    <label style="color: black;">
+                        <input type="checkbox"/>
+                        <span style="margin-right: 2rem;">Spray</span>
+                    </label>
+                    <label style="color: black;">
+                        <input type="checkbox"/>
+                        <span style="margin-right: 2rem;">Ink Wash</span>
+                    </label>
+
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <div class="search_box">
+                <div class="title">
+                               <label style="font-size: large">Top 5 Artists this week</label>
+                           </div>
+                <div class="top-artist">
+                            <img src="../../assets/dummy.png" alt="Avatar" class="artist-image">
+                            <label class="artist-name">Steve Jhon</label>
+                            <img src="../../assets/dummy.png" alt="Avatar" class="artist-image">
+                            <label class="artist-name">Lisa Mariana</label>
+                            <img src="../../assets/dummy.png" alt="Avatar" class="artist-image">
+                            <label class="artist-name">Tim Brad</label>
+                            <img src="../../assets/dummy.png" alt="Avatar" class="artist-image">
+                            <label class="artist-name">Pete Los</label>
+                            <img src="../../assets/dummy.png" alt="Avatar" class="artist-image">
+                            <label class="artist-name">Pedro
+
+                            </label>
+                </div>
+
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
     <div class="gallery" >
       
 
@@ -48,9 +79,13 @@
               [detail]="art._id"
               [image]="art.image_url">
             </gallery-card>
-          </div> 
+          </div>
 
-          <a href="/create-painting" class="btn-floating btn-large waves-effect waves-light white" style="position: fixed;bottom: 3rem;right: 4rem;"><i class="material-icons" style="color:#ffab40">add</i></a>
+            <button mat-fab aria-label="Example icon-button with a heart icon" style="background-color: #ffffff;position: fixed;bottom: 3rem;right: 3rem;">
+                <mat-icon style="color:#ffab40">add</mat-icon>
+            </button>
+
+<!--          <a href="/create-painting" class="btn-floating btn-large waves-effect waves-light white" style="position: fixed;bottom: 3rem;right: 4rem;"><i class="material-icons" style="color:#ffab40">add</i></a>-->
         </div>
       </div>
 

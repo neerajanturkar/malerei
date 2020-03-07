@@ -1,11 +1,21 @@
-nav {
+.nav {
     background-color: black;
     opacity: 0.35;
 }
-nav .brand-logo {
-    position: absolute;
+.nav-links {
+    text-decoration: none;
     color: #fff;
-    display: inline-block;
-    font-size: 1.0rem;
-    padding-left: 1rem;
+    font-size: 1rem;
+    margin-right: 2rem;
 }
+.nav-main {
+    text-align: right;
+    width: inherit;
+}
+.brand-logo {
+    position: absolute;
+    display: inline-block;
+    padding-left: 1rem;
+
+}
+
