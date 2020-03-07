@@ -15,37 +15,47 @@
 
 <!--  </nav>-->
 <!--</div>-->
-<header>
-  <mat-toolbar class="nav">
-    <a href="#" class="nav-links brand-logo">M A L E R E I</a>
-    <div class="nav-main">
+<!--<header>-->
+<!--  <mat-toolbar class="nav">-->
+<!--    <a href="#" class="nav-links brand-logo">M A L E R E I</a>-->
+<!--    <div class="nav-main">-->
 
-      <a href="/gallery" class="nav-links" [hidden]="!show_gallery">G A L L E R Y</a>
-      <a href="/events" class="nav-links" [hidden]="!show_events">E V E N T S</a>
-      <a href="/logout" class="nav-links" [hidden]="!show_logout">L O G O U T</a>
-      <a href="#" class="nav-links" [hidden]="!show_login">L O G I N</a>
-      <a href="#" class="nav-links" [hidden]="!show_register">R E G I S T E R</a>
+<!--      <a href="/gallery" class="nav-links" [hidden]="!show_gallery">G A L L E R Y</a>-->
+<!--      <a href="/events" class="nav-links" [hidden]="!show_events">E V E N T S</a>-->
+<!--      <a href="/logout" class="nav-links" [hidden]="!show_logout">L O G O U T</a>-->
+<!--      <a href="#" class="nav-links" [hidden]="!show_login">L O G I N</a>-->
+<!--      <a href="#" class="nav-links" [hidden]="!show_register">R E G I S T E R</a>-->
 
-    </div>
+<!--    </div>-->
+<!--    -->
+<!--  </nav>-->
+<!--</div> -->
+<nav class="navbar navbar-expand-sm" id="main-nav" role="navigation" aria-label="Main">
+  <a href="#" class="navbar-brand">M A L E R E I</a>
+  <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarMenu" >
+      <ul class="navbar-nav ml-auto" >
+        <li>
+          <a class="nav-link" routerLink="/display-event" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" >E V E N T S</a>
+        </li>
+        <li>
+          <a class="nav-link" routerLink="/gallery" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">G A L L E R Y</a>
+        </li>
+        <li class="nav-item" *ngIf="!userIsAuthenticated == linkDisable">
+          <a href="#" class="nav-link" (click) = "onLoginDialog()"
+          routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">S I G N I N</a>
+        </li>
+        <li class="nav-item" *ngIf="!userIsAuthenticated == linkDisable" >
+            <a href="#" class="nav-link" (click) = "onRegiterDialog()"
+              routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">S I G N U P</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav " *ngIf="userIsAuthenticated">
+          <button class="btn" (click)="onLogout()">Logout </button>
+      </ul>
+  </div>
 
-<!--    <a href="#" class="nav-links ">M A L E R E I</a>-->
-
-<!--    <button style="background: #01579b;-->
-<!--        color: azure;-->
-<!--        border: none;-->
-<!--        margin-top: 7px;" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu for carrier settings and Logout">-->
-<!--      <mat-icon>more_vert</mat-icon>-->
-<!--    </button>-->
-<!--    <mat-menu #menu="matMenu">-->
-<!--      <button mat-menu-item (click)="onSettingsClick();" aria-label="carrier settings">-->
-<!--        <mat-icon>settings</mat-icon>-->
-<!--        <span>Carrier Settings</span>-->
-<!--      </button>-->
-
-<!--      <button mat-menu-item (click)="logout();" aria-label="logout">-->
-<!--        <mat-icon>power_settings_new</mat-icon>-->
-<!--        <span>Log Out</span>-->
-<!--      </button>-->
-<!--    </mat-menu>-->
-  </mat-toolbar>
-</header>
+</nav>
+<router-outlet></router-outlet>

@@ -48,7 +48,6 @@ export class CreatePaintingComponent implements OnInit {
     reader.readAsDataURL(this.image_file);
   }
   submitArt() {
-    alert("hi");
     const artData = new FormData();
     artData.append('name', this.form.value.title);
     artData.append('artist', this.form.value.artist);

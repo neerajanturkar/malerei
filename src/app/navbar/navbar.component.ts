@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
+import {MatDialogConfig, MatDialog,  MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import { RegisterComponent } from '../register/register.component';
+import { LoginComponent } from '../login/login.component';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../services/auth.service';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -7,41 +13,42 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router: Router) {}
-  show_login: boolean;
-  show_register: boolean;
-  show_gallery: boolean;
-  show_events: boolean;
-  show_logout: boolean;
-  base_url = 'http://localhost:4200/';
+  userIsAuthenticated: boolean = false;
+  private authListenerSubs: Subscription;
+  linkDisable = true;
+
+  constructor(private router: Router,public dialog: MatDialog, private authService: AuthService) { }
+
   ngOnInit() {
-    localStorage.setItem('isLogedin', 'true');
-    if (window.location.href === this.base_url) {
-      this.show_gallery = true;
-      this.show_events = true;
-      if (localStorage.getItem('isLogedin') === null || localStorage.getItem('isLogedin') === 'false') {
-        this.show_login =  true;
-        this.show_register = true;
-        this.show_logout = false;
-      } else {
-        this.show_login =  false;
-        this.show_register = false;
-        this.show_logout = true;
-      }
-    }
-    if (window.location.href === this.base_url + 'gallery') {
-      this.show_gallery = false;
-      this.show_events = true;
-      if (localStorage.getItem('isLogedin') === null || localStorage.getItem('isLogedin') === 'false') {
-        this.show_login =  true;
-        this.show_register = true;
-        this.show_logout = false;
-      } else {
-        this.show_login =  false;
-        this.show_register = false;
-        this.show_logout = true;
-      }
-    }
+    this.userIsAuthenticated = this.authService.getIsAuth();
+    this.authListenerSubs = this.authService
+      .getAuthStatusListener()
+      .subscribe(isAuthenticated => {
+        this.userIsAuthenticated = isAuthenticated;
+      });
   }
 
+  onRegiterDialog(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "30%";
+    this.dialog.open(RegisterComponent, dialogConfig);
+  }
+
+  onLoginDialog(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "30%";
+    this.dialog.open(LoginComponent, dialogConfig);
+  }
+
+  onLogout(){
+    this.authService.logout();
+  }
+
+  ngOnDestroy(){
+    this.authListenerSubs.unsubscribe();
+  }
 }

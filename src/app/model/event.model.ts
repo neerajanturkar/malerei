@@ -6,4 +6,5 @@ export interface Exhibition {
     time: string;
     location: string;
     image_url: string;
+   
   }
