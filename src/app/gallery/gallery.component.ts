@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
 import { GalleryService } from '../gallery.service';
+
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
@@ -19,7 +20,8 @@ export class GalleryComponent implements OnInit {
   current_bid: any;
   expiry: any;
   artist: any;
-  filters:any;
+  filters: any;
+  tiles: any;
   arts = [];
   ngOnInit() {
     this.title = "Ice & Fire";
@@ -34,6 +36,15 @@ export class GalleryComponent implements OnInit {
       this.arts = data;
       console.log(this.arts);
     });
+    // this.tiles = [
+    //   {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
+    //   {text: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+    //   {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
+    //   {text: 'Four', cols: 1, rows: 1, color: '#DDBDF1'},
+    //   {text: 'five', cols: 1, rows: 1, color: '#DDBDF1'},
+    //   {text: 'five', cols: 1, rows: 1, color: '#DDBDF1'},
+    //   {text: 'seven', cols: 1, rows: 1, color: '#DDBDF1'},
+    // ];
   }
 
 }

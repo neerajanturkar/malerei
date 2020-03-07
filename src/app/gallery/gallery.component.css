@@ -35,7 +35,7 @@ body::after{ content:''; display:block; height:100px; }
 .gallery {
     margin-right: 5%;
     margin-left: 5%;
-    margin-top:5%; 
+    margin-top: -25%;
 }
 .card { 
     max-width: 25rem;
@@ -63,4 +63,23 @@ body::after{ content:''; display:block; height:100px; }
 ::ng-deep .md-focused label{
     color: darkolivegreen !important;
 }
+.example-margin {
+    margin-right:  1rem;
+}
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #ffab40 !important;
+}
 
+::ng-deep .mat-form-field-underline ng-tns-c3-1 ng-star-inserted{
+    color: #ffab40;
+}
+
+
+.example-card {
+    max-width: 400px;
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
