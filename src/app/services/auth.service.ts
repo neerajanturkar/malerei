@@ -29,6 +29,8 @@ export class AuthService {
    
     getIsAuth(){ return this.isAuthenticated; }
     getAuthStatusListener(){ return this.authStatusListener.asObservable(); }
+
+    getUserType(){ return this.type };
     
     createUser( user:User ){
       console.log(user)

@@ -1,21 +1,23 @@
 <div class="container">
-  <h3>Event Details</h3>
+  <h3 class="text-center p-5">Event Details</h3>
     <div class="row">
-        <div class="col s6" >
-          <h6>{{exhibitions.name}}</h6>
-          <h6>{{exhibitions.time}} {{exhibitions.location}}</h6>
+        <div class="col-sm-6" >
+          <h4>{{exhibitions.name}}</h4>
+          <h6>{{exhibitions.time | date: 'shortDate'}} &nbsp;to&nbsp; {{exhibitions.location | date: 'shortDate'}}</h6>
           <h6>{{exhibitions.from}}</h6>
           <br>
           <h5>Address</h5>
           <h6>{{exhibitions.to}}</h6>
         </div>
 
-        <div class="col s6 col-img ">
+        <div class="col-sm-6 col-img ">
           <img [src]="exhibitions.image_url" [alt]="exhibitions.name">
         </div> 
     </div>
   <br>
-  <h6>Ticket Information</h6>
+  <br>
+  <h4>Ticket Information</h4>
+  <br>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef> No. </th>
