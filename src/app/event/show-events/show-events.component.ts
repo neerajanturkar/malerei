@@ -5,6 +5,7 @@ import { EventsService } from '../../services/events.service';
 import { Subscription } from 'rxjs';
 import { DetailEventComponent } from '../detail-event/detail-event.component';
 import { ActivatedRoute, ParamMap } from "@angular/router";
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-show-events',
@@ -17,9 +18,13 @@ export class ShowEventsComponent implements OnInit, OnDestroy{
   filters: any;
   private postsSub: Subscription;
 
+  isAuth: boolean = false;
+  iconDisable = true;
+  userType: string;
+
   constructor(private router: Router,
               private eventService: EventsService,
-              
+              private authService: AuthService,
               public route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -33,38 +38,9 @@ export class ShowEventsComponent implements OnInit, OnDestroy{
         this.isLoading = false;
         this.exhibitions = exhibitions;
       });
-
-      
-        // if (paramMap.has("eventId")) {
-        //   this.mode = "edit";
-        //   this.eventId = paramMap.get("eventId");
-        //   this.isLoading = true;
-        //   this.eventService.getEvent(this.eventId).subscribe(postData => {
-        //     this.isLoading = false;
-        //     this.exhibition = {
-        //       id: postData._id,
-        //       name: postData.name,
-        //       from: postData.from,
-        //       to: postData.to,
-        //       time: postData.time,
-        //       location: postData.location,
-        //       image_url: postData.image_url
-        //     };
-        //     console.log(this.eventId);
-        //     this.form.setValue({
-        //       name: this.exhibition.name,
-      //         from: this.exhibition.from,
-      //         to: this.exhibition.to,
-      //         time: this.exhibition.time,
-      //         location: this.exhibition.location,
-      //         image: this.exhibition.image_url
-      //       });
-      //     });
-      //   } else {
-      //     this.mode = "create";
-      //     this.eventId = null;
-      //   }
-      // });
+      this.isAuth = this.authService.getIsAuth();
+      this.userType = this.authService.getUserType();
+      console.log(this.userType);
   }
 
   onCreateEvent(){
