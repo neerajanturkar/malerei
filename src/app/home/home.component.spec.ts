@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HomeComponent } from './home.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
@@ -12,7 +12,8 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ FormsModule, RouterModule, RouterTestingModule ,HttpClientTestingModule ],
+      imports: [ FormsModule, RouterModule, RouterTestingModule , HttpClientTestingModule , ReactiveFormsModule,
+        ],
       declarations: [ HomeComponent ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })

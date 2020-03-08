@@ -1,57 +1,143 @@
 <html>
   <body>
+    <mat-grid-list cols="2">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <div class="search_box">
+                <div class="search">
+                    <mat-form-field class="example-form-field">
 
-<!--    <app-header></app-header>-->
-    <div class="search_box">
-       <div class="search">         
-             <input placeholder="Search by Artist or Location" type="text"/>       
-       </div>
-       <div class="art_type_filter">
-            <label style="color: black;">
-              <input type="checkbox"/>
-              <span style="margin-right: 2rem;">Oil</span>
-            </label>
-            <label style="color: black;">
-              <input type="checkbox"/>
-              <span style="margin-right: 2rem;">Watercolor</span>
-            </label>
-            <label style="color: black;">
-              <input type="checkbox" />
-              <span style="margin-right: 2rem;">Pastel</span>
-            </label>
-            <label style="color: black;">
-              <input type="checkbox"/>
-              <span style="margin-right: 2rem;">Acrylic</span>
-            </label>
-            <label style="color: black;">
-              <input type="checkbox"/>
-              <span style="margin-right: 2rem;">Spray</span>
-            </label>
-            <label style="color: black;">
-              <input type="checkbox"/>
-              <span style="margin-right: 2rem;">Ink Wash</span>
-            </label>
-           
-         </div>
-    </div>
+                        <input matInput type="text" [(ngModel)]="value" placeholder="Search by Artist or Location">
+                        <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+                <div class="art_type_filter">
+                    <mat-checkbox class="example-margin" [(ngModel)]="checked">Oil</mat-checkbox>
+                    <mat-checkbox class="example-margin" [(ngModel)]="checked">Watercolor</mat-checkbox>
+                    <mat-checkbox class="example-margin" [(ngModel)]="checked">Pastel</mat-checkbox>
+                    <mat-checkbox class="example-margin" [(ngModel)]="checked">Acrylic</mat-checkbox>
+                    <mat-checkbox class="example-margin" [(ngModel)]="checked">Spray</mat-checkbox>
+                    <mat-checkbox class="example-margin" [(ngModel)]="checked">Ink wash</mat-checkbox>
+<!--                    <label style="color: black;">-->
+<!--                        <input type="checkbox"/>-->
+<!--                        <span style="margin-right: 2rem;">Oil</span>-->
+<!--                    </label>-->
+<!--                    <label style="color: black;">-->
+<!--                        <input type="checkbox"/>-->
+<!--                        <span style="margin-right: 2rem;">Watercolor</span>-->
+<!--                    </label>-->
+<!--                    <label style="color: black;">-->
+<!--                        <input type="checkbox" />-->
+<!--                        <span style="margin-right: 2rem;">Pastel</span>-->
+<!--                    </label>-->
+<!--                    <label style="color: black;">-->
+<!--                        <input type="checkbox"/>-->
+<!--                        <span style="margin-right: 2rem;">Acrylic</span>-->
+<!--                    </label>-->
+<!--                    <label style="color: black;">-->
+<!--                        <input type="checkbox"/>-->
+<!--                        <span style="margin-right: 2rem;">Spray</span>-->
+<!--                    </label>-->
+<!--                    <label style="color: black;">-->
+<!--                        <input type="checkbox"/>-->
+<!--                        <span style="margin-right: 2rem;">Ink Wash</span>-->
+<!--                    </label>-->
+
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <div class="search_box">
+                <div class="title">
+                               <label style="font-size: large">Top 5 Artists this week</label>
+                           </div>
+                <div class="top-artist">
+                            <img src="../../assets/dummy.png" alt="Avatar" class="artist-image">
+                            <label class="artist-name">Steve Coe</label>
+                            <img src="../../assets/dummy.png" alt="Avatar" class="artist-image">
+                            <label class="artist-name">Lisa Mariana</label>
+                            <img src="../../assets/dummy.png" alt="Avatar" class="artist-image">
+                            <label class="artist-name">Tim Brad</label>
+                            <img src="../../assets/dummy.png" alt="Avatar" class="artist-image">
+                            <label class="artist-name">Pete Los</label>
+                            <img src="../../assets/dummy.png" alt="Avatar" class="artist-image">
+                            <label class="artist-name">Pedro
+
+                            </label>
+                </div>
+
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
     <div class="gallery" >
-      
+        <mat-grid-list cols="3" rowHeight="35rem" gutterSize="10px">
+            <mat-grid-tile
+                    *ngFor="let art of arts"
+                    [colspan]="1"
+                    [rowspan]="1"
+                    >
 
-        <div class="row">
-          <div *ngFor = "let art of arts">
-            <gallery-card 
+                <mat-card class="example-card">
+                    <img mat-card-image src="{{art.image_url}}" alt="Photo of a Shiba Inu">
+                    <mat-card-content>
+                        <table>
+                            <tr>
+                                <td><span class="card-content-label-black">Artist</span></td>
+                                <td><span class="card-content-label-grey">: {{art.artist}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="card-content-label-black">Current Bid</span></td>
+                                <td><span class="card-content-label-grey">: {{art.curr_bid}} €</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="card-content-label-black">Expiry</span></td>
+                                <td><span class="card-content-label-grey">: {{art.expiry | date:'mediumDate'}} </span></td>
+                            </tr>
 
-              [title]="art.name"
-              [artist]="art.artist"
-              [current_bid]="art.curr_bid"
-              [expiry]="art.expiry" 
-              [detail]="art._id"
-              [image]="art.image_url">
-            </gallery-card>
-          </div> 
 
-          <a href="/create-painting" class="btn-floating btn-large waves-effect waves-light white" style="position: fixed;bottom: 3rem;right: 4rem;"><i class="material-icons" style="color:#ffab40">add</i></a>
-        </div>
+                        </table>
+                        <button mat-button class="bid-btn" id="{{art._id}}" (click)="viewPainting($event);">BID</button>
+                    </mat-card-content>
+
+                </mat-card>
+<!--                <mat-card class="example-card">-->
+<!--                    <img mat-card-image src="../../assets/images/card-image-1.jpg" alt="Photo of a Shiba Inu">-->
+<!--                    <mat-card-content>-->
+<!--                        <p>-->
+<!--                            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.-->
+<!--                            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally-->
+<!--                            bred for hunting.-->
+<!--                        </p>-->
+<!--                    </mat-card-content>-->
+<!--                    <mat-card-actions>-->
+<!--                        <button mat-button>LIKE</button>-->
+<!--                        <button mat-button>SHARE</button>-->
+<!--                    </mat-card-actions>-->
+<!--                </mat-card>-->
+            </mat-grid-tile>
+        </mat-grid-list>
+
+<!--        <div class="row">-->
+<!--          <div *ngFor = "let art of arts">-->
+<!--            <gallery-card -->
+
+<!--              [title]="art.name"-->
+<!--              [artist]="art.artist"-->
+<!--              [current_bid]="art.curr_bid"-->
+<!--              [expiry]="art.expiry" -->
+<!--              [detail]="art._id"-->
+<!--              [image]="art.image_url">-->
+<!--            </gallery-card>-->
+<!--          </div>-->
+
+            <button mat-fab aria-label="Example icon-button with a heart icon" (click)="createPainting($event);" style="background-color: #ffffff;position: fixed;bottom: 3rem;right: 3rem;">
+                <mat-icon style="color:#ffab40">add</mat-icon>
+            </button>
+
+<!--        </div>-->
+
       </div>
 
   </body>

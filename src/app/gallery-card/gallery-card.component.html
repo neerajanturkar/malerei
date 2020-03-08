@@ -1,31 +1,77 @@
-<div class="col s4">
-    <div class="card">
-      <div class="card-image">
-        <img src="{{image}}">
-      </div>
-      <div class="card-content">
-        <span class="card-title">{{title}}</span>
-        
-        <table>
-          <tr>
-            <td><span class="card-content-label-black">Artist</span></td>
-            <td><span class="card-content-label-grey">{{artist}}</span></td>
-          </tr>
-          <tr>
-            <td><span class="card-content-label-black">Current Bid</span></td>
-            <td><span class="card-content-label-grey">{{current_bid}} €</span></td>
-          </tr>
-          <tr>
-            <td><span class="card-content-label-black">Expiry</span></td>
-            <td><span class="card-content-label-grey">{{expiry | date:'mediumDate'}} </span></td>
-          </tr>
-          
-          
-        </table>
-        </div>
-        <div class="card-action" style="text-align:right">
-          <a href="{{bid_url}}">B I D</a>
-        </div>
-        
-      </div>
-    </div>
+<!--<div class="col s4">-->
+<!--    <div class="card">-->
+<!--      <div class="card-image">-->
+<!--        <img src="{{image}}">-->
+<!--      </div>-->
+<!--      <div class="card-content">-->
+<!--        <span class="card-title">{{title}}</span>-->
+<!--        -->
+<!--        <table>-->
+<!--          <tr>-->
+<!--            <td><span class="card-content-label-black">Artist</span></td>-->
+<!--            <td><span class="card-content-label-grey">{{artist}}</span></td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td><span class="card-content-label-black">Current Bid</span></td>-->
+<!--            <td><span class="card-content-label-grey">{{current_bid}} €</span></td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td><span class="card-content-label-black">Expiry</span></td>-->
+<!--            <td><span class="card-content-label-grey">{{expiry | date:'mediumDate'}} </span></td>-->
+<!--          </tr>-->
+<!--          -->
+<!--          -->
+<!--        </table>-->
+<!--        </div>-->
+<!--        <div class="card-action" style="text-align:right">-->
+<!--          <a href="{{bid_url}}">B I D</a>-->
+<!--        </div>-->
+<!--        -->
+<!--      </div>-->
+<!--    </div>-->
+
+
+<!--<mat-card class="example-card">-->
+<!--  <mat-card-header>-->
+<!--    <div mat-card-avatar class="example-header-image"></div>-->
+<!--    <mat-card-title>Shiba Inu</mat-card-title>-->
+<!--    <mat-card-subtitle>Dog Breed</mat-card-subtitle>-->
+<!--  </mat-card-header>-->
+<!--  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+<!--  <mat-card-content>-->
+<!--    <p>-->
+<!--      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.-->
+<!--      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally-->
+<!--      bred for hunting.-->
+<!--    </p>-->
+<!--  </mat-card-content>-->
+<!--  <mat-card-actions>-->
+<!--    <button mat-button>LIKE</button>-->
+<!--    <button mat-button>SHARE</button>-->
+<!--  </mat-card-actions>-->
+<!--</mat-card>-->
+<mat-card class="example-card">
+  <img mat-card-image src="../../assets/images/card-image-1.jpg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <table>
+                <tr>
+                  <td><span class="card-content-label-black">Artist</span></td>
+                  <td><span class="card-content-label-grey">{{artist}}</span></td>
+                </tr>
+                <tr>
+                  <td><span class="card-content-label-black">Current Bid</span></td>
+                  <td><span class="card-content-label-grey">{{current_bid}} €</span></td>
+                </tr>
+                <tr>
+                  <td><span class="card-content-label-black">Expiry</span></td>
+                  <td><span class="card-content-label-grey">{{expiry | date:'mediumDate'}} </span></td>
+                </tr>
+
+
+              </table>
+  </mat-card-content>
+  <mat-card-actions>
+
+    <button mat-button>BID</button>
+  </mat-card-actions>
+</mat-card>

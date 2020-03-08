@@ -17,21 +17,26 @@ input[type="file"] {
 
 .image-preview img {
   height: 100%;
+  width: 100%;
+  margin-left: 100px;
 }
-.col.s6 {
-    position: relative;
-}
-.default-image img{
-    width: 100%;
-    opacity: 0.5;
-}
-span.upload-icon{
-    position: absolute;
-    top: 112px;
-    right: 72px;
-}
+
 .upload-icon img{
-    width: 40%;
+    width: 100%;
     border-radius: 50px;
     cursor: pointer;
+}
+button.mat-stroked-button {
+  /* margin: 10px; */
+  margin-left: 100px;
+}
+table {
+  width: 100%;
+  background-color: transparent;
+}
+table th{
+  font-size: 20px;
+}
+table td{
+  font-size: 18px;
 }

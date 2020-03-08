@@ -1,11 +1,60 @@
-nav {
+.nav {
     background-color: black;
     opacity: 0.35;
 }
-nav .brand-logo {
-    position: absolute;
+.nav-links {
+    text-decoration: none;
     color: #fff;
-    display: inline-block;
-    font-size: 1.0rem;
-    padding-left: 1rem;
+    font-size: unset;
+    margin-right: 2rem;
 }
+.nav-main {
+    text-align: right;
+    width: inherit;
+}
+.brand-logo {
+    position: absolute;
+    display: inline-block;
+    padding-left: 1rem;
+
+}
+.navbar{
+    background-color: black;
+    opacity: 0.35;
+    color: white;
+}
+a.nav-link {
+    color: white;
+    font-size: unset;
+}
+.navbar-brand{
+    color: white;
+    font-size: unset;
+}
+.nav-item a{
+    color: white;
+    font-size: unset;
+}
+.active{
+    color: #ffd949!important;
+}
+.nav-item a:hover{
+    color: #ffd949;
+}
+button .btn{
+    background-color: transparent;
+}
+.btn{
+    color: white;
+    font-size: 20px;
+}
+button .btn:hover{
+    color: #ffd949;
+}
+.navbar-2{
+    background-color: rgba(0,0,0,.5);
+}
+.iteractive{
+    display: none;
+}
+

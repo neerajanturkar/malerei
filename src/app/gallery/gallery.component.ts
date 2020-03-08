@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
 import { GalleryService } from '../gallery.service';
+
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
@@ -11,7 +12,7 @@ export class GalleryComponent implements OnInit {
 
   constructor(private galleryService: GalleryService,
     private router: Router) { }
-  title : string;
+  title: string;
   detail: string;
   image: string;
   image1: string;
@@ -19,7 +20,8 @@ export class GalleryComponent implements OnInit {
   current_bid: any;
   expiry: any;
   artist: any;
-  filters:any;
+  filters: any;
+  tiles: any;
   arts = [];
   ngOnInit() {
     this.title = "Ice & Fire";
@@ -34,6 +36,13 @@ export class GalleryComponent implements OnInit {
       this.arts = data;
       console.log(this.arts);
     });
+  }
+  viewPainting(event) {
+    console.log(event.target.parentElement.id);
+    this.router.navigate(['/view-painting/' + event.target.parentElement.id]);
+  }
+  createPainting(event) {
+    this.router.navigate(['/create-painting']);
   }
 
 }

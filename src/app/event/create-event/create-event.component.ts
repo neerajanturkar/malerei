@@ -6,6 +6,18 @@ import { mimeType } from "./mime-type.validator";
 
 import { EventsService } from '../../services/events.service';
 
+export interface PeriodicElement {
+  position: number;
+  ticket_type: string;
+  price: string;
+}
+const ELEMENT_DATA : PeriodicElement[] =  [
+  {position: 1, ticket_type: 'Adult', price: '10'},
+  {position: 2, ticket_type: 'Child', price: '5'},
+  {position: 3, ticket_type: 'Student', price: '7'},
+  {position: 4, ticket_type: 'Group', price: '8'}
+]
+
 @Component({
   selector: 'app-create-event',
   templateUrl: './create-event.component.html',
@@ -24,6 +36,10 @@ export class CreateEventComponent implements OnInit {
   private mode = "create";
   private eventId: string;
 
+  displayedColumns: string[] = ['position', 'ticket_type', 'price'];
+
+  dataSource = ELEMENT_DATA;
+
   constructor(public eventService: EventsService,
     public route: ActivatedRoute) { }
 
@@ -39,38 +55,10 @@ export class CreateEventComponent implements OnInit {
       image: new FormControl(null, {
         validators: [Validators.required],
         asyncValidators: [mimeType]
-      })
+      }),
+
     });
-    this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      if (paramMap.has("eventId")) {
-        this.mode = "edit";
-        this.eventId = paramMap.get("eventId");
-        this.isLoading = true;
-        this.eventService.getEvent(this.eventId).subscribe(postData => {
-          this.isLoading = false;
-          this.exhibition = {
-            id: postData._id,
-            name: postData.name,
-            from: postData.from,
-            to: postData.to,
-            time: postData.time,
-            location: postData.location,
-            image_url: postData.image_url
-          };
-          this.form.setValue({
-            name: this.exhibition.name,
-            from: this.exhibition.from,
-            to: this.exhibition.to,
-            time: this.exhibition.time,
-            location: this.exhibition.location,
-            image: this.exhibition.image_url
-          });
-        });
-      } else {
-        this.mode = "create";
-        this.eventId = null;
-      }
-    });
+
   }
 
   onImagePicked(event :Event){
@@ -100,14 +88,11 @@ export class CreateEventComponent implements OnInit {
         this.form.value.image
       );
     // } else {
-    //   this.eventService.updatePost(
+    //   this.eventService.getEventById(
     //     this.eventId,
-    //     this.form.value.title,
-    //     this.form.value.content,
-    //     this.form.value.image
     //   );
     }
-    console.log(this.form.value.image);
+    //console.log(this.eventId);
     this.form.reset();
   }
 

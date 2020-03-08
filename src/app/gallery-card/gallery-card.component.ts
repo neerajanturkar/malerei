@@ -9,7 +9,7 @@ export class GalleryCardComponent implements OnInit {
 
   @Input() title: any;
   @Input() detail: any;
-  @Input() image : any;
+  @Input() image: any;
   @Input() artist: any;
   @Input() current_bid: any;
   @Input() expiry: any;
@@ -19,8 +19,9 @@ export class GalleryCardComponent implements OnInit {
  
   ngOnInit() {
     this.bid_url = '/view-painting/' + this.detail;
-    console.log(this.bid_url);
-    
+    console.log(this.title);
+    console.log(this.current_bid);
+
   }
 
 }

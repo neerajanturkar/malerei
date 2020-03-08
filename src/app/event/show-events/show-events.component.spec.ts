@@ -6,6 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {MatSnackBarModule} from '@angular/material';
 
 describe('ShowEventsComponent', () => {
   let component: ShowEventsComponent;
@@ -14,7 +15,7 @@ describe('ShowEventsComponent', () => {
   beforeEach(async(() => {
 
     TestBed.configureTestingModule({
-      imports: [ FormsModule, RouterModule, RouterTestingModule ,HttpClientTestingModule ],
+      imports: [ FormsModule, RouterModule, RouterTestingModule , HttpClientTestingModule , MatSnackBarModule ],
       declarations: [ ShowEventsComponent ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })

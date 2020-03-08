@@ -7,12 +7,18 @@ import { CreateEventComponent } from './event/create-event/create-event.componen
 import { GalleryComponent } from './gallery/gallery.component';
 import { CreatePaintingComponent } from './create-painting/create-painting.component';
 import { ViewPaintingComponent } from './view-painting/view-painting.component';
+import { DetailEventComponent } from './event/detail-event/detail-event.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 const routes: Routes = [
     { path: 'home', component: HomeComponent},
     { path: '', component: HomeComponent},
+    { path: 'register', component: RegisterComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'gallery', component: GalleryComponent},
     { path: 'display-event', component: ShowEventsComponent},
     { path: 'create-event', component: CreateEventComponent},
-    { path: 'gallery', component: GalleryComponent},
+    { path: 'event-details/:id', component: DetailEventComponent},
     { path: 'create-painting', component: CreatePaintingComponent},
     { path: 'view-painting/:id', component: ViewPaintingComponent}
 ];

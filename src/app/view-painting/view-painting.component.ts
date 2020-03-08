@@ -17,6 +17,7 @@ export class ViewPaintingComponent implements OnInit {
   placed_bid: any;
   bids = [];
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.id = this.route.snapshot.paramMap.get("id");
     console.log(this.id);
     this.galleryService.getArt(this.id).then(data => {

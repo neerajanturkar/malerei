@@ -3,7 +3,9 @@ import { Router } from "@angular/router";
 import { Exhibition } from '../../model/event.model';
 import { EventsService } from '../../services/events.service';
 import { Subscription } from 'rxjs';
-import {MatDialog} from '@angular/material/dialog';
+import { DetailEventComponent } from '../detail-event/detail-event.component';
+import { ActivatedRoute, ParamMap } from "@angular/router";
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-show-events',
@@ -16,10 +18,19 @@ export class ShowEventsComponent implements OnInit, OnDestroy{
   filters: any;
   private postsSub: Subscription;
 
+  isAuth: boolean = false;
+  iconDisable = true;
+  userType: string;
+
   constructor(private router: Router,
-              private eventService: EventsService) { }
+              private eventService: EventsService,
+              private authService: AuthService,
+              public route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(paramMap => {
+      console.log(paramMap);
+    });
     this.isLoading = true;
     this.eventService.getEvent(this.filters);
     this.postsSub = this.eventService.getPostUpdateListener()
@@ -27,14 +38,13 @@ export class ShowEventsComponent implements OnInit, OnDestroy{
         this.isLoading = false;
         this.exhibitions = exhibitions;
       });
+      this.isAuth = this.authService.getIsAuth();
+      this.userType = this.authService.getUserType();
+      console.log(this.userType);
   }
 
   onCreateEvent(){
     this.router.navigate(["/create-event"]);
-  }
-
-  onEventPage(){
-
   }
 
   ngOnDestroy() {

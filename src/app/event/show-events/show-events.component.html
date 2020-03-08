@@ -1,23 +1,20 @@
 <div class="container">
-  <h3>UPCOMING EVENT</h3>
+  <h3 class="text-center p-5"> Events</h3>
   <mat-spinner *ngIf="isLoading"></mat-spinner>
   <div class="row">
-    <div class="col s3 m4" *ngFor="let exhibition of exhibitions">
-      <div class="card" (click)='onEventPage()'>
-        <div class="card-image"><img [src]="exhibition.image_url" [alt]="exhibition.name">
-          
-          <span class="card-title">{{exhibition.name}}</span>
-          <!-- <span>{{exhibition.time && exhibition.location}}</span> -->
-        </div>
-      </div>
-    </div>
+    <div class="col-sm-4" *ngFor="let exhibition of exhibitions">
+        <mat-card class="example-card" [routerLink]="['/event-details',exhibition.id]">
+            <img mat-card-image src="{{exhibition.image_url}}" >
+            <mat-card-content>
+              <h5>{{exhibition.name}}</h5>
+              <p>{{exhibition.time | date: 'shortDate'}} &nbsp;to&nbsp; {{exhibition.location | date: 'shortDate'}}</p>
+            </mat-card-content>     
+        </mat-card>
+     </div>
   </div>
-
-  <div >
-    <span (click)="onCreateEvent()">
+  <div class="p-5">
+    <span (click)="onCreateEvent()" *ngIf="(isAuth && userType === 'Admin') == iconDisable">
       <i class="medium material-icons">add</i>
     </span>
-  </div>
-
-
+ </div>
 </div>
