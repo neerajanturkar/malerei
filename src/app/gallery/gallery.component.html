@@ -6,43 +6,20 @@
                 <div class="search">
                     <mat-form-field class="example-form-field">
 
-                        <input matInput type="text" [(ngModel)]="value" placeholder="Search by Artist or Location">
-                        <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                        <input matInput type="text" [(ngModel)]="search" placeholder="Search by Artist or Location" (keypress)="getSearchedArts($event);" (keydown)="getSearchedArts($event)">
+                        <button mat-button *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="search=''">
                             <mat-icon>close</mat-icon>
                         </button>
                     </mat-form-field>
                 </div>
                 <div class="art_type_filter">
-                    <mat-checkbox class="example-margin" [(ngModel)]="checked">Oil</mat-checkbox>
-                    <mat-checkbox class="example-margin" [(ngModel)]="checked">Watercolor</mat-checkbox>
-                    <mat-checkbox class="example-margin" [(ngModel)]="checked">Pastel</mat-checkbox>
-                    <mat-checkbox class="example-margin" [(ngModel)]="checked">Acrylic</mat-checkbox>
-                    <mat-checkbox class="example-margin" [(ngModel)]="checked">Spray</mat-checkbox>
-                    <mat-checkbox class="example-margin" [(ngModel)]="checked">Ink wash</mat-checkbox>
-<!--                    <label style="color: black;">-->
-<!--                        <input type="checkbox"/>-->
-<!--                        <span style="margin-right: 2rem;">Oil</span>-->
-<!--                    </label>-->
-<!--                    <label style="color: black;">-->
-<!--                        <input type="checkbox"/>-->
-<!--                        <span style="margin-right: 2rem;">Watercolor</span>-->
-<!--                    </label>-->
-<!--                    <label style="color: black;">-->
-<!--                        <input type="checkbox" />-->
-<!--                        <span style="margin-right: 2rem;">Pastel</span>-->
-<!--                    </label>-->
-<!--                    <label style="color: black;">-->
-<!--                        <input type="checkbox"/>-->
-<!--                        <span style="margin-right: 2rem;">Acrylic</span>-->
-<!--                    </label>-->
-<!--                    <label style="color: black;">-->
-<!--                        <input type="checkbox"/>-->
-<!--                        <span style="margin-right: 2rem;">Spray</span>-->
-<!--                    </label>-->
-<!--                    <label style="color: black;">-->
-<!--                        <input type="checkbox"/>-->
-<!--                        <span style="margin-right: 2rem;">Ink Wash</span>-->
-<!--                    </label>-->
+                    <mat-checkbox class="example-margin">Oil</mat-checkbox>
+                    <mat-checkbox class="example-margin">Watercolor</mat-checkbox>
+                    <mat-checkbox class="example-margin">Pastel</mat-checkbox>
+                    <mat-checkbox class="example-margin">Acrylic</mat-checkbox>
+                    <mat-checkbox class="example-margin">Spray</mat-checkbox>
+                    <mat-checkbox class="example-margin">Ink wash</mat-checkbox>
+
 
                 </div>
             </div>
@@ -82,6 +59,7 @@
                 <mat-card class="example-card">
                     <img mat-card-image src="{{art.image_url}}" alt="Photo of a Shiba Inu">
                     <mat-card-content>
+                        <label style="font-size: larger">{{art.name}}</label>
                         <table>
                             <tr>
                                 <td><span class="card-content-label-black">Artist</span></td>
@@ -102,41 +80,17 @@
                     </mat-card-content>
 
                 </mat-card>
-<!--                <mat-card class="example-card">-->
-<!--                    <img mat-card-image src="../../assets/images/card-image-1.jpg" alt="Photo of a Shiba Inu">-->
-<!--                    <mat-card-content>-->
-<!--                        <p>-->
-<!--                            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.-->
-<!--                            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally-->
-<!--                            bred for hunting.-->
-<!--                        </p>-->
-<!--                    </mat-card-content>-->
-<!--                    <mat-card-actions>-->
-<!--                        <button mat-button>LIKE</button>-->
-<!--                        <button mat-button>SHARE</button>-->
-<!--                    </mat-card-actions>-->
-<!--                </mat-card>-->
+
             </mat-grid-tile>
         </mat-grid-list>
 
-<!--        <div class="row">-->
-<!--          <div *ngFor = "let art of arts">-->
-<!--            <gallery-card -->
 
-<!--              [title]="art.name"-->
-<!--              [artist]="art.artist"-->
-<!--              [current_bid]="art.curr_bid"-->
-<!--              [expiry]="art.expiry" -->
-<!--              [detail]="art._id"-->
-<!--              [image]="art.image_url">-->
-<!--            </gallery-card>-->
-<!--          </div>-->
 
             <button mat-fab aria-label="Example icon-button with a heart icon" (click)="createPainting($event);" style="background-color: #ffffff;position: fixed;bottom: 3rem;right: 3rem;">
                 <mat-icon style="color:#ffab40">add</mat-icon>
             </button>
 
-<!--        </div>-->
+
 
       </div>
 

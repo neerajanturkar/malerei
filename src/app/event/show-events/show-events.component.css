@@ -10,4 +10,5 @@ mat-card{
     width: 100%;
     box-shadow: 1px 1px 5px rgba(10, 10, 10, 1);
     cursor: pointer;
+    margin-top: 2rem;
 }

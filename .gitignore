@@ -39,3 +39,4 @@ testem.log
 Thumbs.db
 /api/node_modules
 .gitignore
+api/images/*

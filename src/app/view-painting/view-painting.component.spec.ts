@@ -13,7 +13,7 @@ describe('ViewPaintingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ FormsModule, RouterModule, RouterTestingModule ,HttpClientTestingModule ],
+      imports: [ FormsModule, RouterModule, RouterTestingModule , HttpClientTestingModule ],
       declarations: [ ViewPaintingComponent ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
       providers: []

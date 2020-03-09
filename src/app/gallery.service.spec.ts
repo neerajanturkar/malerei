@@ -15,4 +15,9 @@ describe('GalleryService', () => {
     const service: GalleryService = TestBed.get(GalleryService);
     expect(service).toBeTruthy();
   });
+
+  it('API URL should be equal to http://localhost:5000/api/v1/', () => {
+    const service: GalleryService = TestBed.get(GalleryService);
+    expect(service.apiUrl).toEqual('http://localhost:5000/api/v1/');
+  });
 });

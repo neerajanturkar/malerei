@@ -44,7 +44,7 @@
                       <input matInput placeholder="Starting Price" formControlName="starting_price">
                   </mat-form-field>
                   <div class="btn-container">
-                      <button mat-raised-button style="background-color: #ffab40; color: white;margin-right: 1rem">Clear</button>
+                      <button mat-raised-button style="background-color: #ffab40; color: white;margin-right: 1rem" (click)="clearForm()">Clear</button>
                       <button mat-raised-button style="background-color: darkolivegreen; color: white">Submit</button>
                   </div>
               </form>
@@ -66,8 +66,7 @@
                
                 <label class="btn" for="uploadedhere" style="background-color: darkolivegreen;margin-left: 2rem;color: white">Upload Picture</label>
                 <input type="file" id="uploadedhere" style="display: none;" (change)="uploadPicture($event)">
-                   
-              
+
               <!-- <input type="file" id="uploadedhsere" onchange="myfun()" style="margin-left: 2rem;color: darkolivegreen;"> -->
               <br>
               <br>

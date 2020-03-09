@@ -78,6 +78,8 @@ export class CreatePaintingComponent implements OnInit {
       });
       this.router.navigate(['/gallery']);
     });
-
+  }
+  clearForm() {
+    this.form.reset();
   }
 }

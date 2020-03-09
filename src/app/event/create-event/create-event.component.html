@@ -43,10 +43,10 @@
           <br><br>
             <div>
               <button mat-stroked-button type="button" (click)="filePicker.click()">Pick Image</button>
-              <input type="file" #filePicker (change)="onImagePicked($event)">
+              <input type="file" #filePicker (change)="onImagePicked($event)" >
             </div>
             <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
-              <img [src]="imagePreview" [alt]="form.value.name">
+              <img [src]="imagePreview" [alt]="form.value.name" style="max-height: 400px !important;max-width: 400px;!important;">
             </div>
 
           <!-- <span class="default-image"><img src="../../../assets/images/card-image-1.jpg"></span>
@@ -59,7 +59,7 @@
           </div> -->
         </div> 
       </div>
-      <button mat-raised-button color="primary" type="submit">Save Event</button>
+      <button mat-raised-button type="submit" style="background-color: darkolivegreen;color: white">Save</button>
     </form>
     <br><br>
     <h4>Ticket Information</h4>
