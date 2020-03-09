@@ -7,14 +7,19 @@
             <img mat-card-image src="{{exhibition.image_url}}" >
             <mat-card-content>
               <h5>{{exhibition.name}}</h5>
-              <p>{{exhibition.time | date: 'shortDate'}} &nbsp;to&nbsp; {{exhibition.location | date: 'shortDate'}}</p>
+              <p>{{exhibition.time | date: 'mediumDate'}} &nbsp;to&nbsp; {{exhibition.location | date: 'mediumDate'}}</p>
             </mat-card-content>     
         </mat-card>
      </div>
   </div>
   <div class="p-5">
-    <span (click)="onCreateEvent()" *ngIf="(isAuth && userType === 'Admin') == iconDisable">
-      <i class="medium material-icons">add</i>
-    </span>
+<!--    <span (click)="onCreateEvent()" *ngIf="(isAuth && userType === 'Admin') == iconDisable">-->
+<!--    <span (click)="onCreateEvent()">-->
+<!--      <i class="medium material-icons">add</i>-->
+<!--    </span>-->
+
+      <button mat-fab aria-label="Example icon-button with a heart icon" *ngIf="(isAuth && userType === 'Admin') == iconDisable" (click)="onCreateEvent();" style="background-color: #ffffff;position: fixed;bottom: 3rem;right: 3rem;">
+          <mat-icon style="color:#ffab40">add</mat-icon>
+      </button>
  </div>
 </div>

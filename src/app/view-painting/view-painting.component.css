@@ -49,3 +49,22 @@ td{
 }
 
 
+.bid-table {
+    width: 100%;
+    background-color: transparent;
+    margin-left: 10rem;
+    margin-right: 2rem;
+
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label{
+    color: darkolivegreen;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple{
+    background-color: darkolivegreen;
+}
+
+::ng-deep .mat-form-field-underline .ng-tns-c4-0 .ng-star-inserted{
+    background-color: darkolivegreen;
+}

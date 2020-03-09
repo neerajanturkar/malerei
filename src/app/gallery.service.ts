@@ -5,22 +5,28 @@ import { HttpClient, HttpHeaders, HttpResponse, HttpParams } from '@angular/comm
   providedIn: 'root'
 })
 export class GalleryService {
-  private apiUrl = "http://localhost:5000/api/v1/"
+  apiUrl = 'http://localhost:5000/api/v1/'
   constructor(private http: HttpClient) { }
 
   getArts(filters: any): Promise<any> {
-    let headers = new HttpHeaders({'Content-Type':'application/json'}); 
-    let body = JSON.stringify(filters); // To-do use service for search
-    return this.http
-    .get(this.apiUrl+"arts", { headers: headers })
-    .toPromise()
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    if (filters === undefined || filters === '') {
+      return this.http
+          .get(this.apiUrl + 'arts' , { headers: headers })
+          .toPromise();
+    } else {
+      return this.http
+          .get(this.apiUrl + 'arts?search=' + filters, { headers: headers })
+          .toPromise();
+    }
+
   }
 
   getArt(id: any): Promise<any> {
-    let headers = new HttpHeaders({'Content-Type':'application/json'}); 
+    let headers = new HttpHeaders({'Content-Type': 'application/json'});
     return this.http
-    .get(this.apiUrl+"arts/"+id, { headers: headers })
-    .toPromise()
+    .get(this.apiUrl + 'arts/' + id, { headers: headers })
+    .toPromise();
   }
 
   placeBid(id:any, data:any ) {

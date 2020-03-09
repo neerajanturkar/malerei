@@ -2,6 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { GalleryService } from '../gallery.service';
 import { ActivatedRoute } from "@angular/router";
 
+export interface BidData {
+  datetime: string;
+  amount: string;
+  user_id: string;
+
+}
+
 @Component({
   selector: 'app-view-painting',
   templateUrl: './view-painting.component.html',
@@ -12,18 +19,21 @@ export class ViewPaintingComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private galleryService: GalleryService
               ) { }
-  id : any;
+  id: any;
   art: any;
   placed_bid: any;
-  bids = [];
+  // bids = [];
+  bids: BidData[];
+  displayedColumns: string[] = ['datetime', 'amount'];
   ngOnInit() {
     window.scrollTo(0, 0);
-    this.id = this.route.snapshot.paramMap.get("id");
-    console.log(this.id);
+    this.id = this.route.snapshot.paramMap.get('id');
     this.galleryService.getArt(this.id).then(data => {
       this.art = data;
-      this.bids = data.bids;
-      console.log(this.art);
+      if (data.bids.length > 0) {
+        this.bids = data.bids.reverse();
+      }
+      console.log(this.bids);
     });
 
   }

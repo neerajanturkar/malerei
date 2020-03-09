@@ -26,7 +26,7 @@ const storage = multer.diskStorage({
 
 router.get('/', getArt);
 router.get('/:id', getArt);
-// router.post('/', createArt);
+
 router.put('/:id/bid', addBid);
 
 function getArt(req, res, next) {
@@ -39,26 +39,27 @@ function getArt(req, res, next) {
             }
         });
     } else {
-        Art.find({}, (err, art) => {
-            if(err){
-                res.json(err);
-            } else {
-                res.json(art);
-            }
-        });
+
+        if(req.query.search === undefined) {
+            Art.find({}, (err, art) => {
+                if (err) {
+                    res.json(err);
+                } else {
+                    res.json(art);
+                }
+            });
+        } else {
+            Art.find({ $or: [{'location': new RegExp(req.query.search, 'i')},
+                             {'artist': new RegExp(req.query.search, 'i')}] }, (err, art) => {
+                if (err) {
+                    res.json(err);
+                } else {
+                    res.json(art);
+                }
+            });
+        }
     }
 }
-
-// function createArt(req, res, next) {
-//     var art = new Art(req.body);
-//     art.save((err, art) => {
-//         if(err){
-//             res.json(err);
-//         } else {
-//             res.json(art);
-//         }
-//     });
-// }
 
 function addBid(req, res, next) {
     if(req.params.id !== undefined) {

@@ -22,6 +22,7 @@ export class GalleryComponent implements OnInit {
   artist: any;
   filters: any;
   tiles: any;
+  search: any;
   arts = [];
   ngOnInit() {
     this.title = "Ice & Fire";
@@ -32,7 +33,7 @@ export class GalleryComponent implements OnInit {
     this.current_bid = 100;
     this.expiry = "20-12-2020";
 
-    this.galleryService.getArts(this.filters).then(data => {
+    this.galleryService.getArts(this.search).then(data => {
       this.arts = data;
       console.log(this.arts);
     });
@@ -43,6 +44,12 @@ export class GalleryComponent implements OnInit {
   }
   createPainting(event) {
     this.router.navigate(['/create-painting']);
+  }
+  getSearchedArts(event) {
+    console.log(this.search);
+    this.galleryService.getArts(this.search).then( data => {
+      this.arts = data;
+    });
   }
 
 }

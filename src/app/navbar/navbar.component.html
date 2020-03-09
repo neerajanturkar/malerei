@@ -53,7 +53,9 @@
         </li>
       </ul>
       <ul class="nav navbar-nav " *ngIf="userIsAuthenticated">
-          <button class="btn" (click)="onLogout()">Logout </button>
+          <a href="#" class="nav-link" (click) = "onLogout()"
+             routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">L O G O U T</a>
+<!--          <button class="btn" (click)="onLogout()">L O G O U T</button>-->
       </ul>
   </div>
 
