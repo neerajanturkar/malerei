@@ -86,7 +86,7 @@
 
 
 
-            <button mat-fab aria-label="Example icon-button with a heart icon" (click)="createPainting($event);" style="background-color: #ffffff;position: fixed;bottom: 3rem;right: 3rem;">
+            <button mat-fab aria-label="Example icon-button with a heart icon" *ngIf="isAuth" (click)="createPainting($event);" style="background-color: #ffffff;position: fixed;bottom: 3rem;right: 3rem;">
                 <mat-icon style="color:#ffab40">add</mat-icon>
             </button>
 

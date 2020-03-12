@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GalleryService } from '../gallery.service';
 import { ActivatedRoute } from "@angular/router";
-
+import { AuthService } from '../services/auth.service';
 export interface BidData {
   datetime: string;
   amount: string;
@@ -16,7 +16,7 @@ export interface BidData {
 })
 export class ViewPaintingComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,
+  constructor(private route: ActivatedRoute,private authService: AuthService,
               private galleryService: GalleryService
               ) { }
   id: any;
@@ -25,8 +25,10 @@ export class ViewPaintingComponent implements OnInit {
   // bids = [];
   bids: BidData[];
   displayedColumns: string[] = ['datetime', 'amount'];
+  isAuth:boolean;
   ngOnInit() {
     window.scrollTo(0, 0);
+    this.isAuth = this.authService.getIsAuth();
     this.id = this.route.snapshot.paramMap.get('id');
     this.galleryService.getArt(this.id).then(data => {
       this.art = data;
