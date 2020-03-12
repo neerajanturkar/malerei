@@ -38,4 +38,14 @@ describe('CreateEventComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render the title of h3 tag', () => {
+    let compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h3').textContent).toContain('Add Event');
+  });
+
+  it('should render the title of h4 tag', () => {
+    let compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h4').textContent).toContain('Ticket Information');
+  })
 });

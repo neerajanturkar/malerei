@@ -25,4 +25,5 @@ describe('DetailEventComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+
 });

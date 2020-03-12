@@ -31,4 +31,9 @@ describe('ShowEventsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render the title h3 tag', () => {
+    let combined = fixture.debugElement.nativeElement;
+    expect(combined.querySelector('h3').textContent).toContain('Events');
+  })
 });

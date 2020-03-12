@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { EventsService } from 'src/app/services/events.service';
 import { ActivatedRoute, ParamMap } from "@angular/router";
 import { Exhibition } from '../../model/event.model';
@@ -21,7 +21,7 @@ const ELEMENT_DATA : PeriodicElement[] =  [
   templateUrl: './detail-event.component.html',
   styleUrls: ['./detail-event.component.css']
 })
-export class DetailEventComponent implements OnInit {
+export class DetailEventComponent implements OnInit, OnDestroy{
   exhibitions: any;
  
   private eventId: string;
