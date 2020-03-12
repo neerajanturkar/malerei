@@ -82,12 +82,13 @@
                           <mat-form-field class="example-full-width-padding">
 
                               <input matInput placeholder="Bid" type="number" [(ngModel)]="placed_bid">
+
                           </mat-form-field>
 <!--                          <input id="location" type="number" [(ngModel)]="placed_bid">-->
                       </td>
                       <td>
-                          <button mat-raised-button style="background-color: darkolivegreen; color: white" (click)="placeBid()">Bid</button>
-
+                          <button mat-raised-button style="background-color: darkolivegreen; color: white" *ngIf="isAuth" (click)="placeBid()">Bid</button>
+                          <label *ngIf="!isAuth">Login to place the bid</label>
                       </td>
                     </tr>
                 </table>

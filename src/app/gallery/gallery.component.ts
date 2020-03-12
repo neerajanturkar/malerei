@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
 import { GalleryService } from '../gallery.service';
+import { AuthService } from '../services/auth.service';
+
 
 @Component({
   selector: 'app-gallery',
@@ -10,7 +12,7 @@ import { GalleryService } from '../gallery.service';
 })
 export class GalleryComponent implements OnInit {
 
-  constructor(private galleryService: GalleryService,
+  constructor(private galleryService: GalleryService, private authService: AuthService,
     private router: Router) { }
   title: string;
   detail: string;
@@ -24,6 +26,8 @@ export class GalleryComponent implements OnInit {
   tiles: any;
   search: any;
   arts = [];
+  isAuth = false;
+  iconDisable = true;
   ngOnInit() {
     this.title = "Ice & Fire";
     this.artist = "Neeraj Anturkar";
@@ -32,7 +36,7 @@ export class GalleryComponent implements OnInit {
     this.image1 = "../../assets/main_background.jpg";
     this.current_bid = 100;
     this.expiry = "20-12-2020";
-
+    this.isAuth = this.authService.getIsAuth();
     this.galleryService.getArts(this.search).then(data => {
       this.arts = data;
       console.log(this.arts);
