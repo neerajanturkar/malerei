@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GalleryService } from '../gallery.service';
 import { ActivatedRoute } from "@angular/router";
 import { AuthService } from '../services/auth.service';
+import { MatSnackBar } from '@angular/material';
 export interface BidData {
   datetime: string;
   amount: string;
@@ -17,6 +18,7 @@ export interface BidData {
 export class ViewPaintingComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,private authService: AuthService,
+              private snackBar: MatSnackBar,
               private galleryService: GalleryService
               ) { }
   id: any;
@@ -47,12 +49,17 @@ export class ViewPaintingComponent implements OnInit {
     }
     this.galleryService.placeBid(this.id, data).then(response => {
       if (!response['success']) {
-        alert(response['message']);
+        this.snackBar.open(response['message'], '', {
+          duration: 500,
+          verticalPosition: 'top'
+        });
       } else {
-        alert(response['message']);
+        this.snackBar.open(response['message'], '', {
+          duration: 1000,
+          verticalPosition: 'top'
+        });
         location.reload();
       }
-      
     });
   }
 

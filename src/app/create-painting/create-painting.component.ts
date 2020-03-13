@@ -71,7 +71,7 @@ export class CreatePaintingComponent implements OnInit {
     artData.append('starting_price', this.form.value.starting_price);
     artData.append('image', this.image_file);
     this.galleryService.createArt(artData).then( data => {
-      console.log(data);
+
       this.snackBar.open(data['message'], '', {
         duration: 500,
         verticalPosition: 'top'

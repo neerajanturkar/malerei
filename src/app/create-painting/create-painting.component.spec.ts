@@ -30,4 +30,8 @@ describe('CreatePaintingComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have default image for painting', () => {
+    expect(component.imagePreview).toBe('../../assets/upload.jpg');
+  });
 });
